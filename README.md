@@ -1,12 +1,19 @@
 # Tap Escape
 
-Tap Escape is a fast paced mobile puzzle game. Navigate dungeons and find hidden keys to escape.
+Tap Escape is a fast paced mobile puzzle game. Navigate dungeons and find hidden keys to escape. 
 
+## Gameplay
+
+The player is presented with a top down view of one room at a time. The player can navigate between rooms by tapping on doors or stair cases that link the rooms. Tapping on objects in the room cause actions to happen. The player can pick up items and add them to their inventory to use later. The goal of the game is to complete a certain action, either exiting through a door, finding a certain item, etc that has the win condition associated with it. Graphics are 32 bit quality to give the game a retro feel as well as make it easier to mass produce images.
 
 ## The Map
 
-Every new level is called a map. Each map can contain one or more [Rooms](). The player can navigate between rooms by tapping on doors or stair cases that link the rooms. Room linking is discussed further in the [Behaviors]() section. There must be at least one element per map with a "win" behavoir. 
-
+Every new level is called a map. Each map can contain one or more [Rooms](). Every map must have at least one game object with a win behavior. Defining a map requires 5 elements:
+- Rooms
+- Game Objects
+- Items
+- Inventory
+- Intro Message
 
 ## Rooms
 
@@ -194,4 +201,7 @@ inventory:
 
 ## Messages
 
-Game messages can appear as a behavior event or when the game starts or ends. Messages can be up to 50 characters long.
+Game messages can appear as a behavior event or when the game starts or ends. Messages can be up to 50 characters long. Every map can have an optional intro message defined as such:
+```
+intro message: "Welcome to the game. Try to escape!"
+```
