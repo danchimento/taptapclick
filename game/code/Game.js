@@ -11,9 +11,17 @@ export default class Game {
     }
 
     addMap(script) {
-        var map = new Map();
+        var map = new Map(script);
+        
+        this.maps.push(map);
+    }
 
-        this.maps.push()
-
+    startMap(mapName) {
+        for (var map of this.maps) {
+            if (map.name === mapName) {
+                this.currentMap = map;
+                return;
+            }
+        }
     }
 }

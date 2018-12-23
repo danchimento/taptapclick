@@ -9,6 +9,9 @@ export default class Map
         this.gameObjects = [];
         this.inventory = [];
         this.items = [];
+        this.currentRoom = null;
+
+        this._parseScript(script.map);
     }
 
     init () {
@@ -20,5 +23,7 @@ export default class Map
             var room = new Room(roomScript);
             this.rooms.push(room);
         }
+
+        this.currentRoom = this.rooms[0];
     }
 }

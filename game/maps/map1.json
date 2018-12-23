@@ -6,19 +6,19 @@
             {
                 "name": "Room 1",
                 "layout": [
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+                    ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"],
 
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"]
+                    ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"]
                 ]
             }
         ],
@@ -33,7 +33,7 @@
                 "state": "chest_closed",
                 "appearance": [
                     {
-                        "image": "chest_open",
+                        "image": "bookcase",
                         "conditions": [
                             {
                                 "state": "chest_open"
@@ -41,7 +41,7 @@
                         ]
                     },
                     {
-                        "image": "chest_closed",
+                        "image": "sw1",
                         "conditions": [
                             {
                                 "state": "chest_closed"
@@ -55,7 +55,7 @@
                 "state": "locked",
                 "appearance": [
                     {
-                        "image": "door_01"
+                        "image": "bookcase"
                     }   
                 ],
                 "position": {

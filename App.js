@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Game from './code/game/game';
 import GameAdapter from './components/GameAdapter';
 
 export default class App extends React.Component {
 
   constructor() {
-
+    super();
   }
 
   render() {
