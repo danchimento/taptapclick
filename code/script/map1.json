@@ -1,0 +1,143 @@
+{
+    "map": {
+        "name": "Map 1",
+        "message": "Escape the room.",
+        "rooms": [
+            {
+                "name": "Room 1",
+                "layout": [
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"],
+
+                    ["sf1", "sf1", "sf1", "sf1", "sf1", "sf1", "sf1"]
+                ]
+            }
+        ],
+        "gameObjects": [
+            {
+                "name": "chest",
+                "position": {
+                    "room": "Room 1",
+                    "grid": "B2",
+                    "facing": "south"
+                },
+                "state": "chest_closed",
+                "appearance": [
+                    {
+                        "image": "chest_open",
+                        "conditions": [
+                            {
+                                "state": "chest_open"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "chest_closed",
+                        "conditions": [
+                            {
+                                "state": "chest_closed"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "door",
+                "state": "locked",
+                "appearance": [
+                    {
+                        "image": "door_01"
+                    }   
+                ],
+                "position": {
+                    "room": "Room 1",
+                    "grid": "G3",
+                    "facing": "west"
+                }
+            }
+        ],
+        "items": [
+            {
+                "name": "key",
+                "appearance": "key"
+            }
+        ],
+        "behaviors": [
+            {
+                "target": "door",
+                "trigger": "tap",
+                "conditions": [
+                    {
+                        "state": "unlocked",
+                    }
+                ],
+                "actions": [
+                    {
+                        "endLevel": "end_level"
+                    }
+                ]
+            },
+            {
+                "target": "door",
+                "trigger": "tap",
+                "conditions": [
+                    {
+                        "state": "locked"
+                    }
+                ],
+                "actions": [
+                    {
+                        "message": "The door is locked."
+                    }
+                ]
+            },
+            {
+                "target": "door",
+                "trigger": "receive_item",
+                "conditions": [
+                    {
+                        "receivedItem": "key",
+                        "state": "locked"
+                    }
+                ],
+                "actions": [
+                    {
+                        "state": "unlocked"
+                    }
+                ]
+            },
+            {
+                "target": "chest",
+                "trigger": "tap",
+                "conditions": {
+                    "state": "chest_open"
+                },
+                "actions": {
+                    "state": "chest_closed"
+                }
+            },
+            {
+                "target": "chest",
+                "trigger": "tap",
+                "conditions": {
+                    "state": "chest_closed"
+                },
+                "actions": {
+                    "state": "chest_open"
+                }
+            }
+        ],
+        "inventory": [
+
+        ]   
+    }
+}

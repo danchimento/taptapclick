@@ -1,26 +1,18 @@
 {
-  "name": "helloworld",
-  "displayName": "HelloCordova",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject"
   },
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
   "dependencies": {
-    "cordova-ios": "^4.5.5",
-    "cordova-plugin-whitelist": "^1.3.3",
-    "three": "^0.99.0",
-    "web": "0.0.2"
+    "expo": "^31.0.2",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz"
   },
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {}
-    },
-    "platforms": [
-      "ios"
-    ]
-  }
+  "devDependencies": {
+    "babel-preset-expo": "^5.0.0"
+  },
+  "private": true
 }
