@@ -1,13 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import Game from './code/game/game';
+import GameAdapter from './components/GameAdapter';
 
 export default class App extends React.Component {
+
+  constructor() {
+
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!!</Text>
+        
+        <GameAdapter />
 
-        <Image style={styles.flipped} source={require('./assets/icon.png')} />
       </View>
     );
   }

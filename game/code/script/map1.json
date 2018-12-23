@@ -77,7 +77,7 @@
                 "trigger": "tap",
                 "conditions": [
                     {
-                        "state": "unlocked",
+                        "state": "unlocked"
                     }
                 ],
                 "actions": [
