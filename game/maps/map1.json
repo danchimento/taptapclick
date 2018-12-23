@@ -8,15 +8,15 @@
                 "layout": [
                     ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "sf1", "bookshelf", "sf1", "sw1"],
 
                     ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "chest", "sf1", "sf1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "sf1", "armchair", "sf1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw1", "sf1", "table", "sf1", "sf1", "sf1", "sw1"],
 
                     ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"]
                 ]
@@ -27,13 +27,14 @@
                 "name": "chest",
                 "position": {
                     "room": "Room 1",
-                    "grid": "B2",
+                    "x": 2,
+                    "y": 2,
                     "facing": "south"
                 },
                 "state": "chest_closed",
                 "appearance": [
                     {
-                        "image": "bookcase",
+                        "image": "bookshelf",
                         "conditions": [
                             {
                                 "state": "chest_open"
@@ -55,12 +56,13 @@
                 "state": "locked",
                 "appearance": [
                     {
-                        "image": "bookcase"
+                        "image": "bookshelf"
                     }   
                 ],
                 "position": {
                     "room": "Room 1",
-                    "grid": "G3",
+                    "x": 7,
+                    "y": 3,
                     "facing": "west"
                 }
             }

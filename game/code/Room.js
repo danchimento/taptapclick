@@ -1,13 +1,19 @@
+import GridElement from './MapElement'
+import MapElement from './MapElement';
+
 export default class Room
 {
     constructor(script) {
         this.name = script.name;
-        this.layout = [];
+        this.mapElements = [];
 
-        this._parseScript(script);
-    }
-
-    _parseScript(script) {
-        this.layout = script.layout;
+        for (var i in script.layout) {
+            for (var j in script.layout[i]) {
+                var mapElement = new MapElement(this.name, parseInt(j) + 1, parseInt(i) + 1, script.layout[i][j])
+                this.mapElements.push(mapElement);
+            }
+        }
+        
+        this.mapElements.sort((a, b) => a.drawOrder - b.drawOrder);
     }
 }

@@ -1,4 +1,5 @@
 import Room from './Room';
+import GameObject from './GameObject'
 
 export default class Map 
 {
@@ -10,12 +11,11 @@ export default class Map
         this.inventory = [];
         this.items = [];
         this.currentRoom = null;
-
-        this._parseScript(script.map);
+        this._script = script;
     }
 
     init () {
-        
+        this._parseScript(this._script.map);
     }
 
     _parseScript(script) {
@@ -23,6 +23,13 @@ export default class Map
             var room = new Room(roomScript);
             this.rooms.push(room);
         }
+
+        for (var gameObjectScript of script.gameObjects) {
+            var gameObject = new GameObject(gameObjectScript);
+            this.gameObjects.push(gameObject)
+        }
+
+        this.gameObjects.sort((a, b) => a.drawOrder - b.drawOrder);
 
         this.currentRoom = this.rooms[0];
     }

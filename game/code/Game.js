@@ -20,6 +20,7 @@ export default class Game {
         for (var map of this.maps) {
             if (map.name === mapName) {
                 this.currentMap = map;
+                this.currentMap.init();
                 return;
             }
         }
