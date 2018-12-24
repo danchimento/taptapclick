@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import InventoryItem from './InventoryItem';
 
 export default class Menu extends React.Component {
     render() {
         return (
             <View>
-                <Text style={styles.title}>Menu</Text>
+                <TouchableWithoutFeedback onPress={() => this.props.onMenu()}>
+                    <Text style={styles.title}>Menu</Text>
+                </TouchableWithoutFeedback>
             </View>)
     }
 }

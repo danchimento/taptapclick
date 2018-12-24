@@ -2,28 +2,63 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Game from '../game/code/Game';
 import MapAdapter from './MapAdapter';
+import { Font } from 'expo';
+import Home from './Home';
 
 export default class GameAdapter extends React.Component {
 
   constructor() {
     super();
 
+    this.maps = [];
     this.currentMap = null;
     this.game = new Game();
 
     var map1 = require('../game/maps/map1.json');
 
+    this.maps.push(map1.name);
     this.game.addMap(map1);
 
-    this.game.startMap(map1.name);
+    this.state = { 
+      isPlaying: false,
+      fontLoaded: false 
+    }
   }
 
+  async componentDidMount() {
+    await Font.loadAsync({
+      'AbrilFatface': require('../assets/fonts/AbrilFatface-Regular.ttf'),
+    });
+
+    this.setState({ fontLoaded: true });
+  }
+
+  handleStartGame() {
+
+    this.game.startMap(this.maps[0])
+
+    this.setState({
+      isPlaying: true
+    })
+  }
+
+  handleMenu() {
+    this.setState({
+      isPlaying: false
+    })
+  }
+
+
   render() {
-    return (
-      <View style={styles.gameContainer}>
-            <MapAdapter  map={this.game.currentMap}/>
-      </View>
-    );
+    if (!this.state.fontLoaded) {
+      return (<View></View>)
+    }
+
+    if (!this.state.isPlaying) {
+      return (<Home onStartGame={() => this.handleStartGame()} />)
+    }
+
+    return (<MapAdapter onMenu={() => this.handleMenu()}  map={this.game.currentMap}/>);
   }
 }
 

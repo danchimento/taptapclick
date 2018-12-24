@@ -14,8 +14,6 @@ export default class Inventory extends React.Component {
                         )
                     })}
                 </View>
-
-                <Text style={styles.title}>Inventory</Text>
             </View>)
     }
 }
@@ -23,20 +21,15 @@ export default class Inventory extends React.Component {
 const styles = StyleSheet.create({
     inventory: {
         flexDirection: "column",
-        height: 100
+        height: 100,
+        width: "100%"
     },
     itemList: {
         flexDirection: 'row',
         justifyContent: 'center',
-        height: 75,
+        height: 100,
         backgroundColor: "#EDECE1",
-        alignItems: "center"
+        alignItems: "center",
+        width: "100%"
     },
-    title: {
-        textAlign: "center",
-        fontSize: 20,
-        color: "#EDECE1",
-        fontFamily: "AbrilFatface",
-        marginTop: 10,
-    }
 });

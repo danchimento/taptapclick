@@ -19,6 +19,12 @@ export default class Map
     }
 
     init () {
+        this.rooms = [];
+        this.behaviors = [];
+        this.gameObjects = [];
+        this.items = [];
+        this.inventory.init();
+
         this._parseScript(this._script.map);
     }
 

@@ -6,6 +6,11 @@ export default class Inventory {
         this.selectedItem = null;
     }
 
+    init() {
+        this.items = [];
+        this.selectedItem = null;
+    }
+
     add(item) {
         this.items.push(item);
         item.position = null;

@@ -114,26 +114,38 @@ export default class GameAdapter extends React.Component {
     return (
       <View style={styles.map}>
 
-        <GameBoard 
-            style={styles.gameBoard} 
-            size={this._mapSize} 
-            floorElements={floorElements} 
-            mapElements={mapElements} 
-            items={items} 
-            onMapElementPress = {(element) => this._onMapElementPress(element) }
-            onItemPress = {(item) => {this._onItemPress(item)}}
-            addItemToDropZone={(event) => this._addItemToDropzone(event)} 
-            />
+        <View style={styles.section1}>
+            <GameBoard 
+                style={styles.gameBoard} 
+                size={this._mapSize} 
+                floorElements={floorElements} 
+                mapElements={mapElements} 
+                items={items} 
+                onMapElementPress = {(element) => this._onMapElementPress(element) }
+                onItemPress = {(item) => {this._onItemPress(item)}}
+                addItemToDropZone={(event) => this._addItemToDropzone(event)} 
+                />
+        </View>
 
-        <Message style={styles.messageBoxContainer} message={this._map.message} />
+        <View style={styles.section2}>
+            
+            <View style={styles.messageBoxContainer}>
+                <Message message={this._map.message} />
+            </View>
 
-        <Inventory 
-            onItemDropped={(item, target) => this._map.dropItem(item, target)} 
-            dropzones={this._dropzones} 
-            onItemSelected={(item) => this._onItemSelected(item)}
-            style={styles.inventoryContainer} inventory={this._map.inventory} />
+            <View style={styles.inventoryContainer}>
+            <Inventory 
+                onItemDropped={(item, target) => this._map.dropItem(item, target)} 
+                dropzones={this._dropzones} 
+                onItemSelected={(item) => this._onItemSelected(item)}
+                inventory={this._map.inventory} />
+            </View>
 
-        <Menu style={styles.menuContainer} />
+            <View style={styles.menuContainer}> 
+                <Menu  onMenu={() => this.props.onMenu()}/>
+            </View>
+        </View>
+        
       </View>
     );
   }
@@ -143,24 +155,35 @@ const styles = StyleSheet.create({
     map: {
         flex: 1,
         flexDirection: "column",
-        justifyContent: "space-evenly",
-    },
-
-    gameBoard: {
-        flex: 1
-    },
-
-    messageBoxContainer: {
-        flex: 1,
+        height: "100%",
+        position: "relative",
+        width: "90%",
         alignItems: "center"
     },
 
+    section1: {
+        flex: 5,
+        flexDirection: "column",
+        justifyContent: "center",
+    },
+
+    section2: {
+        height: 300,
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        width: "100%"
+    },
+
+    messageBoxContainer: {
+        height: 100
+    },
+
     inventoryContainer: {
-        flex: 2
+        height: 75
     },
 
     menuContainer: {
-        flex: 1,
-        alignItems: "baseline"
+        height: 50,
+        margin: 20
     }
 });

@@ -38,7 +38,7 @@ export default class GameBoard extends React.Component {
 const styles = StyleSheet.create({
     mapContainer: {
         position: "relative",
-       transform: [{ rotate: "45deg"}],
+        transform: [{ rotate: "45deg"}],
     },
     
 });

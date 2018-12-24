@@ -59,8 +59,23 @@
                 "state": "locked",
                 "appearance": [
                     {
-                        "image": "door-s"
-                    }   
+                        "image": "door-s",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "locked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door-s-open",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "unlocked"
+                            }
+                        ]
+                    } 
                 ],
                 "position": {
                     "room": "Room 1",
