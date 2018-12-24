@@ -1,6 +1,7 @@
 import Room from './Room';
 import GameObject from './GameObject'
 import Behavior from './Behavior';
+import Item from './Item';
 
 export default class Map 
 {
@@ -9,7 +10,7 @@ export default class Map
         this.rooms = [];
         this.behaviors = [];
         this.gameObjects = [];
-        this.inventory = [];
+        this.inventory = {};
         this.items = [];
         this.currentRoom = null;
         this._script = script;
@@ -24,8 +25,8 @@ export default class Map
         behaviorsToExecute = [];
 
         for (var behavior of this.behaviors) {
-            if (behavior.target == target) {
-                if (this._testConditions(behavior.conditions)) {
+            if (behavior.target == target && behavior.trigger == type) {
+                if (this.testConditions(behavior.conditions)) {
                     behaviorsToExecute.push(behavior);
                 }
             }
@@ -34,6 +35,45 @@ export default class Map
         for (var behavior of behaviorsToExecute) {
             this._performActions(behavior.actions);
         }
+    }
+
+    pickUpItem(itemId) {
+        var item = this.items.find(i => i.name == itemId);
+        item.position = null;
+
+        this.inventory.add(item);
+    }
+
+    getVisibleItems() {
+        var visibleItems = [];
+
+        for (var item of this.items) {
+            if (!item.position || item.position.room != this.currentRoom.name) {
+                continue;
+            }
+
+            if (!this.testConditions(item.appearance.conditions)) {
+                continue;
+            }
+
+            visibleItems.push(item);
+        }
+
+        return visibleItems;
+    }
+
+    getVisbleGameObjects() {
+        var visibleGameObjects = [];
+  
+        for (var gameObject of this.gameObjects) {
+            if (gameObject.position.room != this.currentRoom.name) {
+                continue;
+            }
+            
+            visibleGameObjects.push(gameObject);
+        }
+  
+        return visibleGameObjects;
     }
     
     _performActions(actions) {
@@ -47,7 +87,7 @@ export default class Map
         // State change actions
         if (action.state) {
             var targetObject = this._getGameObject(action.target);
-            targetObject.setState(action.state);
+            targetObject.setState(action.state, this);
         }
 
         // Give item actions
@@ -55,7 +95,7 @@ export default class Map
         // End game actions
     }
 
-    _testConditions(conditions) {
+    testConditions(conditions) {
         for (var condition of conditions) {
             if (!this._testCondition(condition)) {
                 return false;
@@ -91,13 +131,18 @@ export default class Map
         }
 
         for (var gameObjectScript of script.gameObjects) {
-            var gameObject = new GameObject(gameObjectScript);
+            var gameObject = new GameObject(gameObjectScript, this);
             this.gameObjects.push(gameObject)
         }
 
         for (var behaviorScript of script.behaviors) {
             var behavior = new Behavior(behaviorScript);
             this.behaviors.push(behavior);
+        }
+
+        for (var itemScript of script.items) {
+            var item = new Item(itemScript);
+            this.items.push(item);
         }
 
         this.gameObjects.sort((a, b) => a.drawOrder - b.drawOrder);

@@ -45,46 +45,18 @@ export default class GameAdapter extends React.Component {
   _getMapElements() {
       var mapElements = this._map.currentRoom.mapElements;
       mapElements = mapElements
-        .concat(this._getVisbleGameObjects());
+        .concat(this._map.getVisbleGameObjects());
 
     mapElements = mapElements
         .sort((a, b) => a.drawOrder - b.drawOrder);
     
     mapElements = mapElements
+        .concat(this._map.getVisibleItems());
+
+    mapElements = mapElements
         .map(m => this._setMapElementImageProperties(m));
 
-    //   for (var baseElement of baseElements) {
-    //     var gameObjectsInTheSameSpace = gameObjects.filter(go => go.position.x == baseElement.position.x && go.position.y == baseElement.position.y);
-
-    //     if (gameObjectsInTheSameSpace.length) {
-    //         for (var gameObject of gameObjectsInTheSameSpace) {
-    //             this._setMapElementImageProperties(gameObject);
-    //             mapElements.push(gameObject);
-    //         }
-    //     } else {
-    //         this._setMapElementImageProperties(baseElement);
-    //         mapElements.push(baseElement);
-    //     }
-    //   }
-
-    //   for (var gameObject in gameObjects) {
-    //     this._setMapElementImageProperties(gameObject);
-    //     mapElements.push(gameObject);
-    //   }
-
       return mapElements;
-  }
-
-  _getVisbleGameObjects() {
-      var visibleGameObjects = [];
-
-      for (var gameObject of this._map.gameObjects) {
-          if (gameObject.position.room == this._map.currentRoom.name) {
-              visibleGameObjects.push(gameObject);
-          }
-      }
-
-      return visibleGameObjects;
   }
 
   _onMapElementPress(tappedElementId) {
@@ -96,6 +68,15 @@ export default class GameAdapter extends React.Component {
       this.forceUpdate();
   }
 
+  _onItemPress(tappedItemId) {
+    if (!tappedItemId) {
+        return;
+    }
+
+    this._map.pickUpItem(tappedItemId);
+    this.forceUpdate();
+}
+
   render() {
     if (!this._map) {
         return (<View />)
@@ -103,6 +84,7 @@ export default class GameAdapter extends React.Component {
         
     var floorElements = this._getFloorElements();
     var mapElements = this._getMapElements();
+    var items = []//this._map.getVisibleItems();
 
     return (
       <View>
@@ -142,6 +124,26 @@ export default class GameAdapter extends React.Component {
                                 <Image
                                     style={styles.gridImage}
                                     source={mapElement.image.url} />
+                            </TouchableWithoutFeedback>
+                    </View>
+                )
+            })}
+
+            {items.map(item => {
+                return (
+                    <View
+                    style={[
+                        styles.mapElement, 
+                        {width: item.imageWidth},
+                        {height: item.imageHeight},
+                        {right: item.imageRight}, 
+                        {bottom: item.imageBottom}]}  key={item.name} >
+                            <TouchableWithoutFeedback 
+                                onPress={() => this._onItemPress(item.name)} style={[
+                                {width: item.imageWidth},{height: item.imageHeight}]}>
+                                <Image
+                                    style={styles.gridImage}
+                                    source={item.image.url} />
                             </TouchableWithoutFeedback>
                     </View>
                 )

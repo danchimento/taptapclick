@@ -36,11 +36,21 @@
                 "appearance": [
                     {
                         "image": "chest_open",
-                        "state": "chest_open"
+                        "conditions": [
+                            {
+                                "target": "chest",
+                                "state": "chest_open"
+                            }
+                        ]
                     },
                     {
                         "image": "chest",
-                        "state": "chest_closed"
+                        "conditions": [
+                            {
+                                "target": "chest",
+                                "state": "chest_closed"
+                            }
+                        ]
                     }
                 ]
             },
@@ -63,7 +73,20 @@
         "items": [
             {
                 "name": "key",
-                "appearance": "key"
+                "position": {
+                    "room": "Room 1",
+                    "x": 3,
+                    "y": 3
+                },
+                "appearance": {
+                    "image": "key",
+                    "conditions": [
+                        {
+                            "target": "chest",
+                            "state": "chest_open"
+                        }
+                    ]
+                }
             }
         ],
         "behaviors": [

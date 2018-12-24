@@ -4,7 +4,7 @@ import MapElement from "./MapElement";
 export default class GameObject extends MapElement
 {
     constructor(script) {
-        super(script.position.room, script.position.x, script.position.y, script.position.facing, script.appearance[0].image)
+        super(script.name, script.position.room, script.position.x, script.position.y, script.position.facing, script.appearance[0].image)
 
         this.name = script.name;
         this.appearances = [];
@@ -14,16 +14,19 @@ export default class GameObject extends MapElement
             this.appearances.push(appearance);
         }
 
-        this.setState(script.state);
+        this.state = script.state;
+        this.updateImage(this.appearances[0].imageName);
     }
 
-    setState(state) {
+    setState(state, map) {
         this.state = state;
 
         for (var appearance of this.appearances) {
-            if (appearance.stateCondition && appearance.stateCondition == this.state) {
-                this.updateImage(appearance.imageName);
+            if (!appearance.conditions || !map.testConditions(appearance.conditions)) {
+                continue;
             }
+
+            this.updateImage(appearance.imageName);
         }
     }
 }

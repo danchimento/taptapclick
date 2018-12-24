@@ -2,13 +2,13 @@ import ImageLibrary from './ImageLibrary'
 import Position from './Position';
 
 export default class MapElement {
-    constructor(room, x, y, orientation, image) {
+    constructor(id, room, x, y, orientation, image) {
 
         xInt = parseInt(x);
         yInt = parseInt(y);
 
         this.position = new Position(room, xInt, yInt);
-        this.id = `${xInt}-${yInt}`;
+        this.id = id ? id : `${xInt}-${yInt}`;
         this.drawOrder = xInt + yInt;
         this.orientation = orientation;
 

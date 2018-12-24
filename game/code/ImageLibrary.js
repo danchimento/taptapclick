@@ -189,6 +189,16 @@ const images = {
             url: require('../resources/objects/table/table_01_normal_W_1_2_1_1.png'),
         }
     },
+    "key": {
+        width: 3,
+        length: 3,
+        horizontalOverlap: 0,
+        verticalOverlap: 0,
+        url: require('../resources/items/key_01.png'),
+    },
+    "paper": {
+        url: require('../resources/items/paper_01.png'),
+    }
 }
 
 export default images
