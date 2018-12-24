@@ -4,7 +4,9 @@ import MapElement from "./MapElement";
 export default class GameObject extends MapElement
 {
     constructor(script) {
-        super(script.name, script.position.room, script.position.x, script.position.y, script.position.facing, script.appearance[0].image)
+        super(script.name, script.appearance[0].image)
+
+        this.updatePosition(script.position.room, script.position.x, script.position.y, script.position.orientation);
 
         this.name = script.name;
         this.type = "object";

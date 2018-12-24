@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
-export default class GameAdapter extends React.Component {
+export default class GameSquare extends React.Component {
     render() {
         return (<View
             style={[
@@ -16,8 +16,9 @@ export default class GameAdapter extends React.Component {
                     style={[{width: this.props.mapElement.imageWidth},{height: this.props.mapElement.imageLength}]}>
                     
                     <Image
-                        style={styles.gridImage}
+                        style={[styles.gridImage, this.props.mapElement.type == "item" ? styles.item : styles.element]}
                         source={this.props.mapElement.image.url} />
+
                 </TouchableWithoutFeedback>
             </View>)
     }
@@ -30,5 +31,11 @@ const styles = StyleSheet.create({
     gridImage: {
         height: "100%",
         width: "100%"
+    },
+    item: {
+        transform: [{ rotate: "45deg"}],
+    },
+    element: {
+
     }
 });

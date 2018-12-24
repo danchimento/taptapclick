@@ -1,6 +1,8 @@
 import React from 'react';
-import { Alert, StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
-import MapSquare from './MapSquare';
+import { Alert, StyleSheet, Text, View } from 'react-native';
+import Inventory from './Inventory';
+import Message from './Message';
+import GameBoard from './GameBoard';
 
 export default class GameAdapter extends React.Component {
 
@@ -99,49 +101,42 @@ export default class GameAdapter extends React.Component {
     var items = this._getItems();
 
     return (
-      <View>
-            <View style={[styles.mapContainer, {width: this._mapSize, height: this._mapSize}]}>
-                {floorElements.map(floorElement => {
-                    return (<MapSquare key={floorElement.id} mapElement={floorElement} />)
-                })}
+      <View style={styles.map}>
 
-                {mapElements.map(mapElement => {
-                    return (<MapSquare 
-                        key={mapElement.id} 
-                        onPress={() => this._onMapElementPress(mapElement.name)} 
-                        mapElement={mapElement} />)
-                })}
+        <GameBoard 
+            style={styles.gameBoard} 
+            size={this._mapSize} 
+            floorElements={floorElements} 
+            mapElements={mapElements} 
+            items={items} 
+            onMapElementPress = {(element) => this._onMapElementPress(element) }
+            onItemPress = {(item) => {this._onItemPress(item)}} />
 
-                {items.map(item => {
-                    return (<MapSquare 
-                        style={styles.item}
-                        key={item.id} 
-                        onPress={() => this._onItemPress(item.name)} 
-                        mapElement={item} />)
-                })}
-            </View>
+        <Message style={styles.messageBox} message={this._map.message} />
 
-            <Text style={styles.message}>{this._map.message}</Text>
+        <Inventory style={styles.inventory} inventory={this._map.inventory} />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    mapContainer: {
-        position: "relative",
-       transform: [{ rotate: "45deg"}, {translateX: -100}, {translateY: -100}],
-    },
-    
-    item: {
-       transform: [{ rotate: "45deg"}],
+    map: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        height: "100%",
     },
 
-    message: {
-        textAlign: "center",
-        padding: 10,
-        borderRadius: 4,
-        borderWidth: 0.5,
-        borderColor: '#000',
-    }
+    gameBoard: {
+        height: "50%"
+    },
+
+    messageBox: {
+        height: "25%",
+    },
+
+    inventory: {
+        height: "25%",
+    },
 });

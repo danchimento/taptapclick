@@ -1,6 +1,8 @@
 export default class Inventory {
+
     constructor() {
         this.items = [];
+        this.size = 5;
     }
 
     add(item) {

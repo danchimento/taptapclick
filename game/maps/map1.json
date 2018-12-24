@@ -30,7 +30,7 @@
                     "room": "Room 1",
                     "x": 3,
                     "y": 3,
-                    "facing": "east"
+                    "orientation": "east"
                 },
                 "state": "chest_closed",
                 "appearance": [
@@ -66,7 +66,7 @@
                     "room": "Room 1",
                     "x": 4,
                     "y": 1,
-                    "facing": "south"
+                    "orientation": "south"
                 }
             }
         ],
@@ -150,7 +150,18 @@
             }
         ],
         "inventory": [
-
+            {
+                "name": "key",
+                "appearance": {
+                    "image": "key",
+                    "conditions": [
+                        {
+                            "target": "chest",
+                            "state": "chest_open"
+                        }
+                    ]
+                }
+            }
         ]   
     }
 }

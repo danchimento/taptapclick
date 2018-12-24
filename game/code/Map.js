@@ -155,6 +155,11 @@ export default class Map
             this.items.push(item);
         }
 
+        for (var itemScript of script.inventory) {
+            var item = new Item(itemScript);
+            this.inventory.add(item);
+        }
+
         this.gameObjects.sort((a, b) => a.drawOrder - b.drawOrder);
 
         this.currentRoom = this.rooms[0];
