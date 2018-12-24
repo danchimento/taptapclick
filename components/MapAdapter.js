@@ -98,7 +98,7 @@ export default class GameAdapter extends React.Component {
 const styles = StyleSheet.create({
     mapContainer: {
         position: "relative",
-       transform: [{ rotate: "45deg"}, {translateX: 5}],
+     //  transform: [{ rotate: "45deg"}, {translateX: 5}],
     },
     mapElement: {
         position: "absolute"

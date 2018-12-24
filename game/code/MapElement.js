@@ -2,7 +2,7 @@ import ImageLibrary from './ImageLibrary'
 import Position from './Position';
 
 export default class MapElement {
-    constructor(room, x, y, image) {
+    constructor(room, x, y, orientation, image) {
 
         xInt = parseInt(x);
         yInt = parseInt(y);
@@ -10,7 +10,8 @@ export default class MapElement {
         this.position = new Position(room, xInt, yInt);
         this.id = `${xInt}-${yInt}`;
         this.drawOrder = xInt + yInt;
-        this.image = ImageLibrary[image];
+        this.orientation = !orientation || !orientation.length ? "west" : orientation;
+        this.image = ImageLibrary[image][this.orientation];
     }
 
     updatePosition(x, y) {
@@ -19,6 +20,6 @@ export default class MapElement {
     }
 
     updateImage(image) {
-        this.iamge = ImageLibrary[image];
+        this.image = ImageLibrary[image][this.orientation];
     }
 }

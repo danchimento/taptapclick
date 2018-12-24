@@ -9,7 +9,7 @@ export default class Room
 
         for (var i in script.layout) {
             for (var j in script.layout[i]) {
-                var mapElement = new MapElement(this.name, parseInt(j) + 1, parseInt(i) + 1, script.layout[i][j])
+                var mapElement = new MapElement(this.name, parseInt(j) + 1, parseInt(i) + 1, null, script.layout[i][j])
                 this.mapElements.push(mapElement);
             }
         }

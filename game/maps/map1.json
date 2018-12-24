@@ -8,15 +8,15 @@
                 "layout": [
                     ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "bookshelf", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
                     ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "chest", "sf1", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "armchair", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
-                    ["sw1", "sf1", "table", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
 
                     ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"]
                 ]
@@ -27,27 +27,19 @@
                 "name": "chest",
                 "position": {
                     "room": "Room 1",
-                    "x": 2,
-                    "y": 2,
-                    "facing": "south"
+                    "x": 3,
+                    "y": 3,
+                    "facing": "east"
                 },
-                "state": "chest_closed",
+                "state": "chest_open",
                 "appearance": [
                     {
-                        "image": "bookshelf",
-                        "conditions": [
-                            {
-                                "state": "chest_open"
-                            }
-                        ]
+                        "image": "chest_open",
+                        "state": "chest_open"
                     },
                     {
-                        "image": "sw1",
-                        "conditions": [
-                            {
-                                "state": "chest_closed"
-                            }
-                        ]
+                        "image": "chest",
+                        "state": "chest_closed"
                     }
                 ]
             },
