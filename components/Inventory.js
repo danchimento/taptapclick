@@ -1,42 +1,42 @@
 import React from 'react';
-import { View, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import InventoryItem from './InventoryItem';
 
 export default class Inventory extends React.Component {
+
     render() {
-        return (<View>
-                    <View style={styles.itemList}>
+        return (
+            <View style={styles.inventory}>
+                <View style={styles.itemList}>
                     {this.props.inventory.items.map(item => {
                         return (
-                            <View key={item.name} style={styles.inventoryItem}>
-                                <Image
-                                    style={styles.gridImage}
-                                    source={item.image.url} />
-                            </View>)
+                            <InventoryItem selected={this.props.inventory.selectedItem == item.name} onItemSelected={this.props.onItemSelected} key={item.name} item={item} />
+                        )
                     })}
                 </View>
+
+                <Text style={styles.title}>Inventory</Text>
             </View>)
     }
 }
 
 const styles = StyleSheet.create({
+    inventory: {
+        flexDirection: "column",
+        height: 100
+    },
     itemList: {
-        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'center',
         height: 75,
-        backgroundColor: "#fff",
-        alignSelf: "stretch",
+        backgroundColor: "#EDECE1",
+        alignItems: "center"
     },
-    inventoryItem: {
-        height: 50,
-        width: 50,
-        padding: 5,
-    },
-    gridImage: {
-        flex: 1,
-        width: null,
-        height: null,
-        resizeMode: 'contain',
-        transform: [{ rotate: "45deg"}],
+    title: {
+        textAlign: "center",
+        fontSize: 20,
+        color: "#EDECE1",
+        fontFamily: "AbrilFatface",
+        marginTop: 10,
     }
 });

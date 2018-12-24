@@ -1,7 +1,8 @@
 import React from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, Text, View, PanResponder, Animated } from 'react-native';
 import Inventory from './Inventory';
 import Message from './Message';
+import Menu from './Menu';
 import GameBoard from './GameBoard';
 
 export default class GameAdapter extends React.Component {
@@ -14,6 +15,7 @@ export default class GameAdapter extends React.Component {
     this._gridSquaresPerRow = 7;
     this._gridSquareSize = this._mapSize / this._gridSquaresPerRow;
     this._gridSquares = [];
+    this._dropzones = [];
   }
 
   _unitsToPixels(unit) {
@@ -91,6 +93,15 @@ export default class GameAdapter extends React.Component {
       this.forceUpdate();
   }
 
+  _addItemToDropzone(event) {
+      this._dropzones.push(event.nativeEvent.layout)
+  }
+
+  _onItemSelected(item) {
+      this._map.inventory.selectItem(item);
+      this.forceUpdate();
+  }
+
   render() {
     if (!this._map) {
         return (<View />)
@@ -110,11 +121,19 @@ export default class GameAdapter extends React.Component {
             mapElements={mapElements} 
             items={items} 
             onMapElementPress = {(element) => this._onMapElementPress(element) }
-            onItemPress = {(item) => {this._onItemPress(item)}} />
+            onItemPress = {(item) => {this._onItemPress(item)}}
+            addItemToDropZone={(event) => this._addItemToDropzone(event)} 
+            />
 
-        <Message style={styles.messageBox} message={this._map.message} />
+        <Message style={styles.messageBoxContainer} message={this._map.message} />
 
-        <Inventory style={styles.inventory} inventory={this._map.inventory} />
+        <Inventory 
+            onItemDropped={(item, target) => this._map.dropItem(item, target)} 
+            dropzones={this._dropzones} 
+            onItemSelected={(item) => this._onItemSelected(item)}
+            style={styles.inventoryContainer} inventory={this._map.inventory} />
+
+        <Menu style={styles.menuContainer} />
       </View>
     );
   }
@@ -125,18 +144,23 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         justifyContent: "space-evenly",
-        height: "100%",
     },
 
     gameBoard: {
-        height: "50%"
+        flex: 1
     },
 
-    messageBox: {
-        height: "25%",
+    messageBoxContainer: {
+        flex: 1,
+        alignItems: "center"
     },
 
-    inventory: {
-        height: "25%",
+    inventoryContainer: {
+        flex: 2
     },
+
+    menuContainer: {
+        flex: 1,
+        alignItems: "baseline"
+    }
 });

@@ -3,5 +3,6 @@ export default class Condition {
         this.state = script.state;
         this.target = script.target;
         this.receivedItem = script.receivedItem;
+        this.item = script.item;
     }
 }

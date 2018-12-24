@@ -114,14 +114,19 @@
             },
             {
                 "target": "door",
-                "trigger": "receive_item",
+                "trigger": "use_item",
                 "conditions": [{
-                    "receivedItem": "key",
+                    "item": "key"
+                }, {
                     "target": "door",
                     "state": "locked"
                 }],
                 "actions": [{
-                    "state": "unlocked"
+                    "state": "unlocked",
+                    "target": "door"
+                },
+                {
+                    "message": "The lock clicks open."
                 }]
             },
             {
@@ -150,18 +155,7 @@
             }
         ],
         "inventory": [
-            {
-                "name": "key",
-                "appearance": {
-                    "image": "key",
-                    "conditions": [
-                        {
-                            "target": "chest",
-                            "state": "chest_open"
-                        }
-                    ]
-                }
-            }
+           
         ]   
     }
 }

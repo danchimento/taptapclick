@@ -7,21 +7,12 @@ export default class Message extends React.Component {
     constructor() {
         super();
 
-        this.state = { fontLoaded: false }
     }
 
-    async componentDidMount() {
-        await Font.loadAsync({
-          'AbrilFatface': require('../assets/fonts/AbrilFatface-Regular.ttf'),
-        });
-
-        this.setState({ fontLoaded: true });
-      }
+    
 
     render() {
-        if (!this.state.fontLoaded) {
-            return (<View></View>)
-        }
+        
         return (<View style={styles.message}>
                 <Text style={styles.messageText}>{this.props.message}</Text>                
             </View>)
@@ -36,7 +27,7 @@ const styles = StyleSheet.create({
     messageText: {
         textAlign: "center",
         fontSize: 25,
-        color: "#FFF",
+        color: "#EDECE1",
        fontFamily: "AbrilFatface"
     }
 });

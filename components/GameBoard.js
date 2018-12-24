@@ -8,14 +8,18 @@ export default class GameBoard extends React.Component {
 
             <View style={[styles.mapContainer, {width: this.props.size, height: this.props.size}]}>
                 {this.props.floorElements.map(floorElement => {
-                    return (<MapSquare key={floorElement.id} mapElement={floorElement} />)
+                    return (<MapSquare key={floorElement.id} mapElement={floorElement}/>)
                 })}
 
                 {this.props.mapElements.map(mapElement => {
                     return (<MapSquare 
                         key={mapElement.id} 
                         onPress={() => this.props.onMapElementPress(mapElement.name)} 
-                        mapElement={mapElement} />)
+                        mapElement={mapElement} 
+                        onLayout={(event) => {
+                            this.props.addItemToDropzone(event)
+                        }}
+                        />)
                 })}
 
                 {this.props.items.map(item => {

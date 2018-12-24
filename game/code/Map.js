@@ -24,6 +24,10 @@ export default class Map
 
     trigger(type, target) {
 
+        if (type == "tap" && this.inventory.selectedItem) {
+            type = "use_item"
+        }
+
         behaviorsToExecute = [];
 
         for (var behavior of this.behaviors) {
@@ -37,6 +41,8 @@ export default class Map
         for (var behavior of behaviorsToExecute) {
             this._performActions(behavior.actions);
         }
+
+        this.inventory.clearSelectedItem();
     }
 
     pickUpItem(itemId) {
@@ -103,6 +109,9 @@ export default class Map
         // Give item actions
 
         // End game actions
+        if (action.endLevel) {
+            this.message = "YOU WIN!"
+        }
     }
 
     testConditions(conditions) {
@@ -125,13 +134,22 @@ export default class Map
             }
         }
 
-        // Test Received Item
+        // Test Use Item
+        if (condition.item) {
+            if (condition.item != this.inventory.selectedItem) {
+                return false;
+            }
+        }
 
         return true;
     }
 
     _getGameObject(name) {
         return this.gameObjects.find(go => go.name == name);
+    }
+
+    dropItem(item, target) {
+        this.inventory.remove(item);
     }
 
     _parseScript(script) {
