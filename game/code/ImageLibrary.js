@@ -191,7 +191,7 @@ const images = {
     },
     "key": {
         width: 3,
-        length: 3,
+        length: 1.2,
         horizontalOverlap: 0,
         verticalOverlap: 0,
         url: require('../resources/items/key_01.png'),

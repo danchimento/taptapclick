@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
-import MapElement from '../game/code/MapElement';
+import MapSquare from './MapSquare';
 
 export default class GameAdapter extends React.Component {
 
@@ -24,9 +24,16 @@ export default class GameAdapter extends React.Component {
       let imageHeightY = this._unitsToPixels(mapElement.image.verticalOverlap);
 
       mapElement.imageWidth = this._unitsToPixels(mapElement.image.width) + imageHeightX;
-      mapElement.imageHeight = this._unitsToPixels(mapElement.image.length) + imageHeightY;
-      mapElement.imageRight = this._mapSize - ((mapElement.position.x) * this._gridSquareSize);
-      mapElement.imageBottom = this._mapSize - ((mapElement.position.y) * this._gridSquareSize);
+      mapElement.imageLength = this._unitsToPixels(mapElement.image.length) + imageHeightY;
+
+      let horizontalSizeDifference = this._gridSquareSize - mapElement.imageWidth;
+      let verticalSizeDifference = this._gridSquareSize - mapElement.imageLength;
+
+      let horizontalOffset = horizontalSizeDifference > 0 ? horizontalSizeDifference / 2 : 0;
+      let verticalOffset = verticalSizeDifference > 0 ? verticalSizeDifference / 2 : 0;
+
+      mapElement.imageRight = this._mapSize - ((mapElement.position.x) * this._gridSquareSize) + horizontalOffset;
+      mapElement.imageBottom = this._mapSize - ((mapElement.position.y) * this._gridSquareSize) + verticalOffset;
 
       return mapElement;
   }
@@ -59,6 +66,15 @@ export default class GameAdapter extends React.Component {
       return mapElements;
   }
 
+  _getItems() {
+    var items = this._map.getVisibleItems();
+
+    items = items
+        .map(i => this._setMapElementImageProperties(i));
+
+    return items;
+  }
+
   _onMapElementPress(tappedElementId) {
       if (!tappedElementId) {
           return;
@@ -69,13 +85,9 @@ export default class GameAdapter extends React.Component {
   }
 
   _onItemPress(tappedItemId) {
-    if (!tappedItemId) {
-        return;
-    }
-
-    this._map.pickUpItem(tappedItemId);
-    this.forceUpdate();
-}
+      this._map.pickUpItem(tappedItemId);
+      this.forceUpdate();
+  }
 
   render() {
     if (!this._map) {
@@ -84,71 +96,32 @@ export default class GameAdapter extends React.Component {
         
     var floorElements = this._getFloorElements();
     var mapElements = this._getMapElements();
-    var items = []//this._map.getVisibleItems();
+    var items = this._getItems();
 
     return (
       <View>
             <View style={[styles.mapContainer, {width: this._mapSize, height: this._mapSize}]}>
+                {floorElements.map(floorElement => {
+                    return (<MapSquare key={floorElement.id} mapElement={floorElement} />)
+                })}
 
-            {floorElements.map(floorElement => {
-                return (
-                    <View
-                    style={[
-                        styles.mapElement, 
-                        {width: floorElement.imageWidth},
-                        {height: floorElement.imageHeight},
-                        {right: floorElement.imageRight}, 
-                        {bottom: floorElement.imageBottom}]}  key={floorElement.id} >
-                            <TouchableWithoutFeedback 
-                                style={[{width: floorElement.imageWidth},{height: floorElement.imageHeight}]}>
-                                <Image
-                                    style={styles.gridImage}
-                                    source={floorElement.image.url} />
-                            </TouchableWithoutFeedback>
-                    </View>
-                )
-            })}
+                {mapElements.map(mapElement => {
+                    return (<MapSquare 
+                        key={mapElement.id} 
+                        onPress={() => this._onMapElementPress(mapElement.name)} 
+                        mapElement={mapElement} />)
+                })}
 
-            {mapElements.map(mapElement => {
-                return (
-                    <View
-                    style={[
-                        styles.mapElement, 
-                        {width: mapElement.imageWidth},
-                        {height: mapElement.imageHeight},
-                        {right: mapElement.imageRight}, 
-                        {bottom: mapElement.imageBottom}]}  key={mapElement.id} >
-                            <TouchableWithoutFeedback 
-                                onPress={() => this._onMapElementPress(mapElement.name)} style={[
-                                {width: mapElement.imageWidth},{height: mapElement.imageHeight}]}>
-                                <Image
-                                    style={styles.gridImage}
-                                    source={mapElement.image.url} />
-                            </TouchableWithoutFeedback>
-                    </View>
-                )
-            })}
-
-            {items.map(item => {
-                return (
-                    <View
-                    style={[
-                        styles.mapElement, 
-                        {width: item.imageWidth},
-                        {height: item.imageHeight},
-                        {right: item.imageRight}, 
-                        {bottom: item.imageBottom}]}  key={item.name} >
-                            <TouchableWithoutFeedback 
-                                onPress={() => this._onItemPress(item.name)} style={[
-                                {width: item.imageWidth},{height: item.imageHeight}]}>
-                                <Image
-                                    style={styles.gridImage}
-                                    source={item.image.url} />
-                            </TouchableWithoutFeedback>
-                    </View>
-                )
-            })}
+                {items.map(item => {
+                    return (<MapSquare 
+                        style={styles.item}
+                        key={item.id} 
+                        onPress={() => this._onItemPress(item.name)} 
+                        mapElement={item} />)
+                })}
             </View>
+
+            <Text style={styles.message}>{this._map.message}</Text>
       </View>
     );
   }
@@ -157,13 +130,18 @@ export default class GameAdapter extends React.Component {
 const styles = StyleSheet.create({
     mapContainer: {
         position: "relative",
-       transform: [{ rotate: "45deg"}, {translateX: 5}],
+       transform: [{ rotate: "45deg"}, {translateX: -100}, {translateY: -100}],
     },
-    mapElement: {
-        position: "absolute"
+    
+    item: {
+       transform: [{ rotate: "45deg"}],
     },
-    gridImage: {
-        height: "100%",
-        width: "100%"
+
+    message: {
+        textAlign: "center",
+        padding: 10,
+        borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#000',
     }
 });

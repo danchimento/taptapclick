@@ -32,23 +32,23 @@
                     "y": 3,
                     "facing": "east"
                 },
-                "state": "chest_open",
+                "state": "chest_closed",
                 "appearance": [
-                    {
-                        "image": "chest_open",
-                        "conditions": [
-                            {
-                                "target": "chest",
-                                "state": "chest_open"
-                            }
-                        ]
-                    },
                     {
                         "image": "chest",
                         "conditions": [
                             {
                                 "target": "chest",
                                 "state": "chest_closed"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "chest_open",
+                        "conditions": [
+                            {
+                                "target": "chest",
+                                "state": "chest_open"
                             }
                         ]
                     }

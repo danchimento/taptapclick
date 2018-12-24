@@ -7,6 +7,7 @@ export default class GameObject extends MapElement
         super(script.name, script.position.room, script.position.x, script.position.y, script.position.facing, script.appearance[0].image)
 
         this.name = script.name;
+        this.type = "object";
         this.appearances = [];
         
         for (var scriptAppearance of script.appearance) {

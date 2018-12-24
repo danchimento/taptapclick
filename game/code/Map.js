@@ -2,6 +2,7 @@ import Room from './Room';
 import GameObject from './GameObject'
 import Behavior from './Behavior';
 import Item from './Item';
+import Inventory from './Inventory';
 
 export default class Map 
 {
@@ -10,10 +11,11 @@ export default class Map
         this.rooms = [];
         this.behaviors = [];
         this.gameObjects = [];
-        this.inventory = {};
+        this.inventory = new Inventory();
         this.items = [];
         this.currentRoom = null;
         this._script = script;
+        this.message = "Escape the room!";
     }
 
     init () {
@@ -39,7 +41,10 @@ export default class Map
 
     pickUpItem(itemId) {
         var item = this.items.find(i => i.name == itemId);
-        item.position = null;
+
+        if (!item) {
+            return;
+        }
 
         this.inventory.add(item);
     }
@@ -88,6 +93,11 @@ export default class Map
         if (action.state) {
             var targetObject = this._getGameObject(action.target);
             targetObject.setState(action.state, this);
+        }
+
+        // Message
+        if (action.message) {
+            this.message = action.message;
         }
 
         // Give item actions
