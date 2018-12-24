@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import ImageLibrary from '../game/code/ImageLibrary';
-import GridSquare from '../game/code/MapElement';
+import { Alert, StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
 
 export default class GameAdapter extends React.Component {
 
@@ -64,6 +62,15 @@ export default class GameAdapter extends React.Component {
       return visibleGameObjects;
   }
 
+  _onMapElementPress(tappedElementId) {
+      if (!tappedElementId) {
+          return;
+      }
+
+      this._map.trigger("tap", tappedElementId);
+      this.forceUpdate();
+  }
+
   render() {
     if (!this._map) {
         return (<View />)
@@ -73,7 +80,7 @@ export default class GameAdapter extends React.Component {
 
     return (
       <View>
-        <View style={[styles.mapContainer, {width: this._mapSize, height: this._mapSize}]}>
+            <View style={[styles.mapContainer, {width: this._mapSize, height: this._mapSize}]}>
             {mapElements.map(mapElement => {
                 return (
                     <View
@@ -83,13 +90,17 @@ export default class GameAdapter extends React.Component {
                         {height: mapElement.imageHeight},
                         {right: mapElement.imageRight}, 
                         {bottom: mapElement.imageBottom}]}  key={mapElement.id} >
-                            <Image
-                                style={styles.gridImage}
-                                source={mapElement.image.url} />
+                            <TouchableWithoutFeedback 
+                                onPress={() => this._onMapElementPress(mapElement.name)} style={[
+                                {width: mapElement.imageWidth},{height: mapElement.imageHeight}]}>
+                                <Image
+                                    style={styles.gridImage}
+                                    source={mapElement.image.url} />
+                            </TouchableWithoutFeedback>
                     </View>
                 )
             })}
-        </View>
+            </View>
       </View>
     );
   }
@@ -98,7 +109,7 @@ export default class GameAdapter extends React.Component {
 const styles = StyleSheet.create({
     mapContainer: {
         position: "relative",
-     //  transform: [{ rotate: "45deg"}, {translateX: 5}],
+       transform: [{ rotate: "45deg"}, {translateX: 5}],
     },
     mapElement: {
         position: "absolute"
