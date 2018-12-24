@@ -10,8 +10,9 @@ export default class MapElement {
         this.position = new Position(room, xInt, yInt);
         this.id = `${xInt}-${yInt}`;
         this.drawOrder = xInt + yInt;
-        this.orientation = !orientation || !orientation.length ? "west" : orientation;
-        this.image = ImageLibrary[image][this.orientation];
+        this.orientation = orientation;
+
+        this.updateImage(image);
     }
 
     updatePosition(x, y) {
@@ -20,6 +21,11 @@ export default class MapElement {
     }
 
     updateImage(image) {
-        this.image = ImageLibrary[image][this.orientation];
+        var libraryImage = ImageLibrary[image];
+        if (libraryImage && libraryImage.url) {
+            this.image = libraryImage;
+        } else {
+            this.image = libraryImage[this.orientation];
+        }
     }
 }

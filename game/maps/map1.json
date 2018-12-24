@@ -5,20 +5,21 @@
         "rooms": [
             {
                 "name": "Room 1",
+                "floor": "sf1",
                 "layout": [
-                    ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"],
+                    ["sc-nw", "sw-s", "sw-s", "", "sw-s", "sw-s", "sc-ne"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw-e", "", "", "", "", "", "sw-w"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw-e", "", "", "", "", "", "sw-w"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw-e", "", "", "", "", "", "sw-w"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw-e", "", "", "", "", "", "sw-w"],
 
-                    ["sw1", "sf1", "sf1", "sf1", "sf1", "sf1", "sw1"],
+                    ["sw-e", "", "", "", "", "", "sw-w"],
 
-                    ["sw1", "sw1", "sw1", "sw1", "sw1", "sw1", "sw1"]
+                    ["sc-sw", "sw-n", "sw-n", "sw-n", "sw-n", "sw-n", "sc-se"]
                 ]
             }
         ],
@@ -48,14 +49,14 @@
                 "state": "locked",
                 "appearance": [
                     {
-                        "image": "bookshelf"
+                        "image": "door-s"
                     }   
                 ],
                 "position": {
                     "room": "Room 1",
-                    "x": 7,
-                    "y": 3,
-                    "facing": "west"
+                    "x": 4,
+                    "y": 1,
+                    "facing": "south"
                 }
             }
         ],

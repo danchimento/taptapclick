@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert, StyleSheet, Text, View, Image, TouchableWithoutFeedback } from 'react-native';
+import MapElement from '../game/code/MapElement';
 
 export default class GameAdapter extends React.Component {
 
@@ -26,26 +27,50 @@ export default class GameAdapter extends React.Component {
       mapElement.imageHeight = this._unitsToPixels(mapElement.image.length) + imageHeightY;
       mapElement.imageRight = this._mapSize - ((mapElement.position.x) * this._gridSquareSize);
       mapElement.imageBottom = this._mapSize - ((mapElement.position.y) * this._gridSquareSize);
+
+      return mapElement;
+  }
+
+  _getFloorElements() {
+      var floorElements = [];
+      
+      for (var floorElement of this._map.currentRoom.floorElements) {
+          this._setMapElementImageProperties(floorElement);
+          floorElements.push(floorElement);
+      }
+
+      return floorElements;
   }
 
   _getMapElements() {
-      var mapElements = [];  
-      var baseElements =  this._map.currentRoom.mapElements;
-      var gameObjects = this._getVisbleGameObjects();
-      
-      for (var baseElement of baseElements) {
-        var gameObjectsInTheSameSpace = gameObjects.filter(go => go.position.x == baseElement.position.x && go.position.y == baseElement.position.y);
+      var mapElements = this._map.currentRoom.mapElements;
+      mapElements = mapElements
+        .concat(this._getVisbleGameObjects());
 
-        if (gameObjectsInTheSameSpace.length) {
-            for (var gameObject of gameObjectsInTheSameSpace) {
-                this._setMapElementImageProperties(gameObject);
-                mapElements.push(gameObject);
-            }
-        } else {
-            this._setMapElementImageProperties(baseElement);
-            mapElements.push(baseElement);
-        }
-      }
+    mapElements = mapElements
+        .sort((a, b) => a.drawOrder - b.drawOrder);
+    
+    mapElements = mapElements
+        .map(m => this._setMapElementImageProperties(m));
+
+    //   for (var baseElement of baseElements) {
+    //     var gameObjectsInTheSameSpace = gameObjects.filter(go => go.position.x == baseElement.position.x && go.position.y == baseElement.position.y);
+
+    //     if (gameObjectsInTheSameSpace.length) {
+    //         for (var gameObject of gameObjectsInTheSameSpace) {
+    //             this._setMapElementImageProperties(gameObject);
+    //             mapElements.push(gameObject);
+    //         }
+    //     } else {
+    //         this._setMapElementImageProperties(baseElement);
+    //         mapElements.push(baseElement);
+    //     }
+    //   }
+
+    //   for (var gameObject in gameObjects) {
+    //     this._setMapElementImageProperties(gameObject);
+    //     mapElements.push(gameObject);
+    //   }
 
       return mapElements;
   }
@@ -76,11 +101,32 @@ export default class GameAdapter extends React.Component {
         return (<View />)
     }
         
+    var floorElements = this._getFloorElements();
     var mapElements = this._getMapElements();
 
     return (
       <View>
             <View style={[styles.mapContainer, {width: this._mapSize, height: this._mapSize}]}>
+
+            {floorElements.map(floorElement => {
+                return (
+                    <View
+                    style={[
+                        styles.mapElement, 
+                        {width: floorElement.imageWidth},
+                        {height: floorElement.imageHeight},
+                        {right: floorElement.imageRight}, 
+                        {bottom: floorElement.imageBottom}]}  key={floorElement.id} >
+                            <TouchableWithoutFeedback 
+                                style={[{width: floorElement.imageWidth},{height: floorElement.imageHeight}]}>
+                                <Image
+                                    style={styles.gridImage}
+                                    source={floorElement.image.url} />
+                            </TouchableWithoutFeedback>
+                    </View>
+                )
+            })}
+
             {mapElements.map(mapElement => {
                 return (
                     <View
