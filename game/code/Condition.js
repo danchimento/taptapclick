@@ -4,5 +4,6 @@ export default class Condition {
         this.target = script.target;
         this.receivedItem = script.receivedItem;
         this.item = script.item;
+        this.hasItem = script.hasItem;
     }
 }

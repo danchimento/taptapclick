@@ -1,5 +1,6 @@
 import Appearance from "./Appearance";
 import MapElement from "./MapElement";
+import Inventory from "./Inventory";
 
 export default class GameObject extends MapElement
 {
@@ -17,19 +18,27 @@ export default class GameObject extends MapElement
             this.appearances.push(appearance);
         }
 
+        if (script.inventory) {
+            this.inventory = new Inventory(script.inventory)
+        }
+
         this.state = script.state;
         this.updateImage(this.appearances[0].imageName);
     }
 
     setState(state, map) {
         this.state = state;
+        this.show();
 
         for (var appearance of this.appearances) {
-            if (!appearance.conditions || !map.testConditions(appearance.conditions)) {
+            if (appearance.conditions && !map.testConditions(appearance.conditions)) {
                 continue;
             }
 
             this.updateImage(appearance.imageName);
+            return;
         }
+
+        this.hide();
     }
 }

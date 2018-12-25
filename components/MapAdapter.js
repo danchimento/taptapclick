@@ -59,7 +59,14 @@ export default class GameAdapter extends React.Component {
         .concat(this._map.getVisbleGameObjects());
 
     mapElements = mapElements
-        .sort((a, b) => a.drawOrder - b.drawOrder);
+        .sort((a, b) => {
+            var drawOrder = a.drawOrder - b.drawOrder;
+            if (drawOrder != 0) {
+                return drawOrder
+            }
+
+            return mapElements.indexOf(a) - mapElements.indexOf(b);
+        });
     
     mapElements = mapElements
         .concat(this._map.getVisibleItems());
@@ -184,6 +191,6 @@ const styles = StyleSheet.create({
 
     menuContainer: {
         height: 50,
-        margin: 20
+        margin: 30
     }
 });

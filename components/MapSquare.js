@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     item: {
-        transform: [{ rotate: "45deg"}],
+     //   transform: [{ rotate: "45deg"}],
     },
     element: {
 

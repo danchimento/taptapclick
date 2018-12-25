@@ -10,7 +10,10 @@ export default class Inventory extends React.Component {
                 <View style={styles.itemList}>
                     {this.props.inventory.items.map(item => {
                         return (
-                            <InventoryItem selected={this.props.inventory.selectedItem == item.name} onItemSelected={this.props.onItemSelected} key={item.name} item={item} />
+                            <InventoryItem 
+                                selected={this.props.inventory.selectedItem && this.props.inventory.selectedItem.name == item.name} onItemSelected={this.props.onItemSelected} 
+                                key={item.name} 
+                                item={item} />
                         )
                     })}
                 </View>
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         height: 100,
-        backgroundColor: "#EDECE1",
+        backgroundColor: "#C6C6BD",
         alignItems: "center",
         width: "100%"
     },

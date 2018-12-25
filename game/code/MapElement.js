@@ -5,6 +5,7 @@ export default class MapElement {
     constructor(id, image) {
         this.id = id;
         this.imageName = image;
+        this._hidden = false;
     }
 
     updatePosition(room, x, y, orientation) {
@@ -26,5 +27,17 @@ export default class MapElement {
         } else {
             this.image = libraryImage[this.orientation];
         }
+    }
+
+    hide() {
+        this._hidden = true;
+    }
+
+    show() {
+        this._hidden = false;
+    }
+
+    visible() {
+        return !this._hidden;
     }
 }

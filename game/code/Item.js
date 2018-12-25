@@ -13,6 +13,7 @@ export default class Item extends MapElement{
         this.name = script.name;
         this.type = "item";
         this.appearance = new Appearance(script.appearance);
+        this.static = script.static;
 
         this.updateImage(this.appearance.imageName);
     }

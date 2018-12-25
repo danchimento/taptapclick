@@ -33,8 +33,8 @@ export default class InventoryItem extends React.Component {
 
 const styles = StyleSheet.create({
     inventoryItem: {
-        height: 50,
-        width: 50,
+        height: 70,
+        width: 70,
         padding: 5,
     },
     gridImage: {

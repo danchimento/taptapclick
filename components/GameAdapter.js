@@ -14,10 +14,9 @@ export default class GameAdapter extends React.Component {
     this.currentMap = null;
     this.game = new Game();
 
-    var map1 = require('../game/maps/map1.json');
-
-    this.maps.push(map1.name);
-    this.game.addMap(map1);
+    this.game.addMap(require('../game/maps/map3.json'));
+    this.game.addMap(require('../game/maps/map2.json'));
+    this.game.addMap(require('../game/maps/map1.json'));
 
     this.state = { 
       isPlaying: false,
@@ -34,7 +33,6 @@ export default class GameAdapter extends React.Component {
   }
 
   handleStartGame() {
-
     this.game.startMap(this.maps[0])
 
     this.setState({

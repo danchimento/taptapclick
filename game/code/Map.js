@@ -11,7 +11,6 @@ export default class Map
         this.rooms = [];
         this.behaviors = [];
         this.gameObjects = [];
-        this.inventory = new Inventory();
         this.items = [];
         this.currentRoom = null;
         this._script = script;
@@ -23,12 +22,15 @@ export default class Map
         this.behaviors = [];
         this.gameObjects = [];
         this.items = [];
-        this.inventory.init();
+        this.inventory = null;
+        this.message = "";
 
         this._parseScript(this._script.map);
     }
 
     trigger(type, target) {
+
+        var actionPerformed = false;
 
         if (type == "tap" && this.inventory.selectedItem) {
             type = "use_item"
@@ -36,6 +38,7 @@ export default class Map
 
         behaviorsToExecute = [];
 
+        // Look for matching behaviors to execute
         for (var behavior of this.behaviors) {
             if (behavior.target == target && behavior.trigger == type) {
                 if (this.testConditions(behavior.conditions)) {
@@ -44,14 +47,52 @@ export default class Map
             }
         }
 
+        // Execute all matching behaviors
         for (var behavior of behaviorsToExecute) {
             this._performActions(behavior.actions);
+            actionPerformed = true;
+        }
+
+
+        if (actionPerformed) {
+            return;
+        }
+
+        var object = this._getGameObject(target);
+
+        // Attempt to add the item to the object
+        if (this.inventory.selectedItem 
+            && object.inventory 
+            && this.testConditions(object.inventory.conditions)) {
+                object.inventory.add(this.inventory.selectedItem);
+                this.inventory.remove(this.inventory.selectedItem);
+        }
+
+        // On a single taps items should be either placed ot picked up
+        else {
+            // Check to see if the object has items
+            if (object.inventory 
+                && object.inventory.items.length 
+                && this.testConditions(object.inventory.conditions)) {
+
+                // Add all the items to the users inventory
+                for (var item of object.inventory.items) {
+                    object.inventory.remove(item);
+                    this.inventory.add(item);
+                }
+            }
         }
 
         this.inventory.clearSelectedItem();
     }
 
     pickUpItem(itemId) {
+        
+        // Items can't be picked up if an item is selected in the inventory
+        if (this.inventory.selectedItem && this.inventory.selectedItem.name != itemId) {
+            return;
+        }
+
         var item = this.items.find(i => i.name == itemId);
 
         if (!item) {
@@ -86,6 +127,10 @@ export default class Map
             if (gameObject.position.room != this.currentRoom.name) {
                 continue;
             }
+
+            if (!gameObject.visible()) {
+                continue;
+            }
             
             visibleGameObjects.push(gameObject);
         }
@@ -112,7 +157,22 @@ export default class Map
             this.message = action.message;
         }
 
-        // Give item actions
+        // Move item actions
+        if (action.moveItem) {
+            if (action.target == "inventory") {
+                var item = this.items.find(i => i.name == action.moveItem);
+                this.inventory.add(item);
+            }
+        }
+
+        // Consume Item
+        if (action.consumeItem) {
+            var item = this.items.find(i => i.name == action.consumeItem);
+
+            if (item) {
+                this.inventory.remove(item)
+            }
+        }
 
         // End game actions
         if (action.endLevel) {
@@ -142,7 +202,15 @@ export default class Map
 
         // Test Use Item
         if (condition.item) {
-            if (condition.item != this.inventory.selectedItem) {
+            if (!this._wildcardCompare(condition.item, this.inventory.selectedItem.name)) {
+                return false;
+            }
+        }
+
+        // Test has Item
+        if (condition.hasItem) {
+            var target = this._getGameObject(condition.target);
+            if (!target.inventory.hasItem(condition.hasItem)) {
                 return false;
             }
         }
@@ -150,8 +218,42 @@ export default class Map
         return true;
     }
 
+    _wildcardCompare(item1, item2) {
+        var indexOfItem1Wildcard = item1.indexOf('*');
+
+        if (indexOfItem1Wildcard == 0) {
+            return item2.endsWith(item1.replace('*', ''));
+        }
+
+        if (indexOfItem1Wildcard == item1.length - 1) {
+            return item2.startsWith(item1.replace('*', ''));
+        }
+
+        var indexOfItem2Wildcard = item2.indexOf('*');
+
+        if (indexOfItem2Wildcard == 0) {
+            return item1.endsWith(item2.replace('*', ''));
+        }
+
+        if (indexOfItem2Wildcard == item1.length - 1) {
+            return item1.startsWith(item2.replace('*', ''));
+        }
+
+        return item1 == item2;
+    }
+
     _getGameObject(name) {
-        return this.gameObjects.find(go => go.name == name);
+        var matchingObject = this.gameObjects.find(go => go.name == name);
+        
+        if (matchingObject) {
+            return matchingObject;
+        }
+        
+        // var matchingItem = this.items.find(item => item.name == name);
+
+        // if (matchingItem) {
+        //     return matchingItem;
+        // }
     }
 
     dropItem(item, target) {
@@ -179,10 +281,7 @@ export default class Map
             this.items.push(item);
         }
 
-        for (var itemScript of script.inventory) {
-            var item = new Item(itemScript);
-            this.inventory.add(item);
-        }
+        this.inventory = new Inventory(script.inventory);
 
         this.gameObjects.sort((a, b) => a.drawOrder - b.drawOrder);
 

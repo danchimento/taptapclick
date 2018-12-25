@@ -24,9 +24,8 @@ export default class GameBoard extends React.Component {
 
                 {this.props.items.map(item => {
                     return (<MapSquare 
-                        style={styles.item}
                         key={item.id} 
-                        onPress={() => this.props.onItemPress(item.name)} 
+                        onPress={() => item.static ? this.props.onMapElementPress(item.name) : this.props.onItemPress(item.name)} 
                         mapElement={item} />)
                 })}
             </View>
