@@ -52,7 +52,20 @@
                             }
                         ]
                     }
-                ]
+                ],
+                "inventory": {
+                    "items": [{
+                        "name": "key",
+                        "position": {
+                            "room": "Room 1",
+                            "x": 3,
+                            "y": 3
+                        },
+                        "appearance": {
+                            "image": "key"
+                        }
+                    }]
+                }
             },
             {
                 "name": "door",
@@ -68,11 +81,20 @@
                         ]
                     },
                     {
-                        "image": "door-open",
+                        "image": "door",
                         "conditions": [
                             {
                                 "target": "door",
                                 "state": "unlocked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door-open",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "open"
                             }
                         ]
                     } 
@@ -86,23 +108,7 @@
             }
         ],
         "items": [
-            {
-                "name": "key",
-                "position": {
-                    "room": "Room 1",
-                    "x": 3,
-                    "y": 3
-                },
-                "appearance": {
-                    "image": "key",
-                    "conditions": [
-                        {
-                            "target": "chest",
-                            "state": "chest_open"
-                        }
-                    ]
-                }
-            }
+            
         ],
         "behaviors": [
             {
@@ -114,6 +120,9 @@
                 }],
                 "actions": [{
                     "endLevel": "end_level"
+                }, {
+                    "state": "open",
+                    "target": "door"
                 }]
             },
             {
@@ -139,9 +148,10 @@
                 "actions": [{
                     "state": "unlocked",
                     "target": "door"
-                },
-                {
-                    "message": "The lock clicks open."
+                }, {
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
                 }]
             },
             {

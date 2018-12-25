@@ -49,7 +49,7 @@ export default class Game {
         this.levelComplete = true;
 
         if (this.onUpdateGameState) {
-            this.onUpdateGameState();
+            setTimeout(this.onUpdateGameState, 2000)
         }
     }
 

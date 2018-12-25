@@ -37,7 +37,14 @@
                         "image": "door",
                         "conditions": [{
                             "target": "door",
-                            "state": "closed"
+                            "state": "locked"
+                        }]
+                    },
+                    {
+                        "image": "door",
+                        "conditions": [{
+                            "target": "door",
+                            "state": "unlocked"
                         }]
                     },
                     {
@@ -265,11 +272,14 @@
                 "trigger": "tap",
                 "target": "door",
                 "actions": [{
-                    "endLevel": "end_level",
+                    "target": "door",
+                    "state": "open"  
+                },{
+                    "endLevel": "end_level"
                 }],
                 "conditions": [
                     {
-                        "state": "open",
+                        "state": "unlocked",
                         "target": "door"
                     }
                 ]
@@ -279,7 +289,11 @@
                 "target": "bookshelf-2",
                 "actions": [{
                     "target": "door",
-                    "state": "open"
+                    "state": "unlocked"
+                }, {
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
                 }],
                 "conditions": [
                     {
@@ -301,7 +315,11 @@
                 "target": "bookshelf-5",
                 "actions": [{
                     "target": "door",
-                    "state": "open"
+                    "state": "unlocked"
+                },{
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
                 }],
                 "conditions": [
                     {
@@ -323,7 +341,11 @@
                 "target": "bookshelf-9",
                 "actions": [{
                     "target": "door",
-                    "state": "open"
+                    "state": "unlocked"
+                },{
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
                 }],
                 "conditions": [
                     {

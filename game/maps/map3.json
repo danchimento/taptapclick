@@ -177,7 +177,7 @@
                     "target": "door",
                     "state": "open"
                 },{
-                    "endLevel": "end_level"
+                    "endLevel": true
                 }]
             },
             {
@@ -230,6 +230,9 @@
                 }, {
                     "moveItem": "book2",
                     "target": "inventory"
+                }, {
+                    "consumeItem": "paper*",
+                    "target": "book"
                 }]
             }
         ],

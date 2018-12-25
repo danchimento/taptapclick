@@ -1,5 +1,6 @@
 import Condition from "./Condition";
 import Item from './Item';
+import { wildcardCompare } from './Utilities'
 
 export default class Inventory {
 
@@ -38,6 +39,16 @@ export default class Inventory {
 
     remove(item) {
         this.items = this.items.filter(i => i.name != item.name);
+    }
+
+    removeItems(name) {
+        var items = this.items.filter(i => {
+            return wildcardCompare(name, i.name)
+        });
+
+        for (var item of items) {
+            this.remove(item);
+        }
     }
 
     hasItem(itemName) {

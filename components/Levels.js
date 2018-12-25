@@ -18,7 +18,7 @@ export default class Levels extends React.Component {
 
                 {this.props.levels.map((level) => {
                     return (
-                        <View style={styles.level}>
+                        <View style={styles.level} key={level.name}>
                             <TouchableWithoutFeedback 
                                 onPress={() => this.props.onLevelSelect(level.name)}>
                                 <Text style={styles.levelName}>{level.name}</Text>
