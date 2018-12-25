@@ -5,7 +5,7 @@
         "rooms": [
             {
                 "name": "Room 1",
-                "floor": "sf1",
+                "floor": "floor-1",
                 "layout": [
                     ["sc-nw", "sw-s", "sw-s", "", "sw-s", "sw-s", "sc-ne"],
 
@@ -59,7 +59,7 @@
                 "state": "locked",
                 "appearance": [
                     {
-                        "image": "door-s",
+                        "image": "door",
                         "conditions": [
                             {
                                 "target": "door",
@@ -68,7 +68,7 @@
                         ]
                     },
                     {
-                        "image": "door-s-open",
+                        "image": "door-open",
                         "conditions": [
                             {
                                 "target": "door",

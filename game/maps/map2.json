@@ -4,7 +4,7 @@
         "rooms": [
             {
                 "name": "room",
-                "floor": "sf1",
+                "floor": "floor-1",
                 "layout": [
                     ["sc-nw", "", "", "", "", "", "sc-ne"],
 

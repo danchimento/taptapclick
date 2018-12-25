@@ -19,6 +19,9 @@ export default class Home extends React.Component {
                 <TouchableWithoutFeedback onPress={this.props.onStartGame}>
                     <Text style={styles.startButton}>Start</Text>
                 </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={this.props.onLevelSelectMenu}>
+                    <Text style={styles.startButton}>Levels</Text>
+                </TouchableWithoutFeedback>
             </View>
       </View>
     );
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
     home: {
         height: "100%",
         width: "100%",
-        backgroundColor: "#F06543",
+        backgroundColor: "#4A4D67",
         flex: 1,
         flexDirection: "column",
         justifyContent: "space-evenly",
@@ -60,6 +63,6 @@ const styles = StyleSheet.create({
     },
     controls: {
         flex: 1,
-
+        alignItems: "center"
     }
 });

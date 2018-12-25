@@ -1,6 +1,6 @@
 {
     "map": {
-        "name": "Map 1",
+        "name": "Book",
         "message": "Escape the room.",
         "rooms": [
             {
@@ -87,11 +87,20 @@
                         ]
                     },
                     {
-                        "image": "door-open",
+                        "image": "door",
                         "conditions": [
                             {
                                 "target": "door",
                                 "state": "unlocked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door-open",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "open"
                             }
                         ]
                     } 
@@ -120,8 +129,8 @@
                 "name": "paper-2",
                 "position": {
                     "room": "room",
-                    "x": 1,
-                    "y": 5
+                    "x": 2,
+                    "y": 6
                 },
                 "appearance": {
                     "image": "paper"
@@ -132,7 +141,7 @@
                 "position": {
                     "room": "room",
                     "x": 5,
-                    "y": 1
+                    "y": 2
                 },
                 "appearance": {
                     "image": "paper"
@@ -165,6 +174,9 @@
                     "state": "unlocked"
                 }],
                 "actions": [{
+                    "target": "door",
+                    "state": "open"
+                },{
                     "endLevel": "end_level"
                 }]
             },
@@ -193,7 +205,7 @@
                     "consumeItem": "book2"
                 },
                 {
-                    "message": "The door swings open."
+                    "message": "*click*"
                 }]
             },
             {

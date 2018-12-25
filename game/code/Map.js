@@ -7,7 +7,7 @@ import Inventory from './Inventory';
 export default class Map 
 {
     constructor(script) {
-        this.name = script.name
+        this.name = script.map.name
         this.rooms = [];
         this.behaviors = [];
         this.gameObjects = [];
@@ -176,7 +176,7 @@ export default class Map
 
         // End game actions
         if (action.endLevel) {
-            this.message = "YOU WIN!"
+            this.onWin();
         }
     }
 
