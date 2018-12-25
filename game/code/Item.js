@@ -14,6 +14,7 @@ export default class Item extends MapElement{
         this.type = "item";
         this.appearance = new Appearance(script.appearance);
         this.static = script.static;
+        this.description = script.description;
 
         this.updateImage(this.appearance.imageName);
     }

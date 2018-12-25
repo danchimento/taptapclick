@@ -15,7 +15,6 @@ export default class Map
         this.items = [];
         this.currentRoom = null;
         this._script = script;
-        this.message = "Escape the room!";
     }
 
     init () {
@@ -36,7 +35,6 @@ export default class Map
             return;
         }
 
-        var actionPerformed = false;
         this.message = "";
 
         if (type == "tap" && this.inventory.selectedItem) {
@@ -59,11 +57,6 @@ export default class Map
             this._performActions(behavior.actions);
             actionPerformed = true;
         }
-
-
-        // if (actionPerformed) {
-        //     return;
-        // }
 
         var object = this._getGameObject(target);
 
@@ -205,6 +198,14 @@ export default class Map
         }
     }
 
+    selectItem(itemName) {
+        this.inventory.selectItem(itemName);
+        
+        if (this.inventory.selectedItem.description) {
+            this.message = this.inventory.selectedItem.description
+        }
+    }
+
     testConditions(conditions) {
         for (var condition of conditions) {
             if (!this._testCondition(condition)) {
@@ -252,6 +253,9 @@ export default class Map
     }
 
     _parseScript(script) {
+
+        this.message = script.message;
+
         for (roomScript of script.rooms) {
             var room = new Room(roomScript);
             this.rooms.push(room);

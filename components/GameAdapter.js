@@ -6,6 +6,7 @@ import { Font } from 'expo';
 import Home from './Home';
 import Levels from './Levels';
 import LevelComplete from './LevelComplete';
+import { AsyncStorage } from "react-native"
 
 export default class GameAdapter extends React.Component {
 
@@ -16,11 +17,18 @@ export default class GameAdapter extends React.Component {
     this.currentMap = null;
     this.game = new Game();
     this.selectingLevels = false;
-    this.game.onUpdateGameState = () => this.handleUpdateGameState();
-
+    this.game.onUpdateGameState = () => this.handleLevelComplete();
+    
     this.state = { 
       fontLoaded: false 
     }
+
+    this.init();
+  }
+
+  async init() {
+    var data = await this._getSaveData();
+    this.game.loadData(data);
   }
 
   async componentDidMount() {
@@ -33,7 +41,11 @@ export default class GameAdapter extends React.Component {
     });
   }
 
-  handleUpdateGameState() {
+  handleLevelComplete() {
+
+    var saveData = this.game.getSaveData();
+    this._saveData(saveData);
+
     this.forceUpdate();
   }
 
@@ -65,6 +77,25 @@ export default class GameAdapter extends React.Component {
   handleNext() {
     this.game.nextLevel();
     this.forceUpdate();
+  }
+
+  _saveData = async (levels) => {
+    try {
+      await AsyncStorage.setItem('@CHIMENTO:LOCKED:LEVELS', JSON.stringify(levels));
+    } catch (error) {
+      // Error saving data
+    }
+  }
+
+  _getSaveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@CHIMENTO:LOCKED:LEVELS');
+      if (value !== null) {
+        return JSON.parse(value);
+      }
+     } catch (error) {
+       // Error retrieving data
+     }
   }
 
   render() {

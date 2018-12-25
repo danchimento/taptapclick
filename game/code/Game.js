@@ -5,9 +5,9 @@ export default class Game {
     constructor() {
         this.levels = [];
 
-        this.addLevel(require('../../game/maps/map1.json'));
-        this.addLevel(require('../../game/maps/map2.json'));
-        this.addLevel(require('../../game/maps/map3.json'));
+        this.addLevel(require('../../game/maps/01_the_key.json'));
+        this.addLevel(require('../../game/maps/02_the_book.json'));
+        this.addLevel(require('../../game/maps/03_the_library.json'));
 
         this.playing = false;
         this.levelComplete = false;
@@ -17,7 +17,39 @@ export default class Game {
         
     }
 
+    loadData(data) {
+        if (!data || !data.levels) {
+            return
+        }
+
+        for (var level of data.levels) {
+            var matchingLevel = this.levels.find(l => l.name == level.name);
+            if (level.completed) {
+                matchingLevel.completed = true;
+            }
+        }
+    }
+
+    getSaveData() {
+        return {
+            levels: this.levels.map(l => {
+                return {
+                    name: l.name,
+                    completed: l.completed
+                }
+            })
+        }
+    }
+
     start() {
+        for (var level of this.levels) {
+            if (!level.completed) {
+                this.startLevel(level.name);
+                return;
+            }
+        }
+
+        // If all the levels are completed
         this.startLevel(this.levels[0].name)
     }
 
@@ -28,6 +60,7 @@ export default class Game {
 
     addLevel(script) {
         var map = new Map(script);
+        map.completed = false;
         
         this.levels.push(map);
     }
@@ -47,6 +80,9 @@ export default class Game {
     handleWin() {
         this.playing = false;
         this.levelComplete = true;
+
+        // This value is used for saving to the device
+        this.currentMap.completed = true;
 
         if (this.onUpdateGameState) {
             setTimeout(this.onUpdateGameState, 2000)

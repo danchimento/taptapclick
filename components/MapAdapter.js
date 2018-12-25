@@ -105,7 +105,7 @@ export default class GameAdapter extends React.Component {
   }
 
   _onItemSelected(item) {
-      this._map.inventory.selectItem(item);
+      this._map.selectItem(item);
       this.forceUpdate();
   }
 
