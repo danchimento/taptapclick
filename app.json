@@ -1,34 +1,4 @@
 {
-  "expo": {
-    "name": "Locked",
-    "slug": "locked",
-    "privacy": "public",
-    "sdkVersion": "31.0.0",
-    "platforms": [
-      "ios",
-      "android"
-    ],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#4A4D67"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "assets/*"
-    ],
-    "ios": {
-      "supportsTablet": false,
-      "bundleIdentifier": "com.chimento.locked"
-    },
-    "android": {
-      "package": "com.chimento.locked"
-    },
-    "description": "A puzzle game."
-  }
+  "displayName": "Locked",
+  "name": "Locked"
 }
