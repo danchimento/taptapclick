@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
     },
     menuButton: {
         fontSize: 20,
-        fontFamily: "AbrilFatface",
+        fontFamily: "Abril Fatface",
         color: "#ffffff",
         textAlign: "center",
     },
     title: {
         fontSize: 50,
-        fontFamily: "AbrilFatface",
+        fontFamily: "Abril Fatface",
         color: "#ffffff",
         textAlign: "center"
     },
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     }, 
     levelName: {
         fontSize: 30,
-        fontFamily: "AbrilFatface",
+        fontFamily: "Abril Fatface",
         color: "#ffffff",
         textAlign: "center",
     }
