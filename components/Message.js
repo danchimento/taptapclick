@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { Font } from 'expo';
 
 export default class Message extends React.Component {
 
