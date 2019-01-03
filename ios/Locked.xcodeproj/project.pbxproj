@@ -42,8 +42,15 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9DA7E8E3A8494B12A8E2094F /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A03E0D08A504C93BEAB784D /* libRNSVG.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		EF1ACBF221DD8CEB00FC2E0D /* touch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBEA21DD8CEB00FC2E0D /* touch.mp3 */; };
+		EF1ACBF321DD8CEB00FC2E0D /* unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBEB21DD8CEB00FC2E0D /* unlock.mp3 */; };
+		EF1ACBF421DD8CEB00FC2E0D /* app_open.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBEC21DD8CEB00FC2E0D /* app_open.mp3 */; };
+		EF1ACBF521DD8CEB00FC2E0D /* wood_creak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBED21DD8CEB00FC2E0D /* wood_creak.mp3 */; };
+		EF1ACBF621DD8CEB00FC2E0D /* key.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBEE21DD8CEB00FC2E0D /* key.mp3 */; };
+		EF1ACBF721DD8CEB00FC2E0D /* slide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBEF21DD8CEB00FC2E0D /* slide.mp3 */; };
+		EF1ACBF821DD8CEB00FC2E0D /* door_unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBF021DD8CEB00FC2E0D /* door_unlock.mp3 */; };
+		EF1ACBF921DD8CEB00FC2E0D /* drawer_open_close.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF1ACBF121DD8CEB00FC2E0D /* drawer_open_close.mp3 */; };
 		EF33027D21D569DE0010C1A0 /* AbrilFatface-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78601E12D17A4826AF578A5D /* AbrilFatface-Regular.ttf */; };
-		EF339C9C21D7B79E0094DE15 /* door_unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EF339C7321D7B79E0094DE15 /* door_unlock.mp3 */; };
 		FAF93BA6CFB54C0580D099D8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E05FBE725C9471BBECE9435 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
@@ -387,7 +394,14 @@
 		C8C82A6FA48149DDA1E96834 /* BugsnagReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BugsnagReactNative.xcodeproj; path = "../node_modules/bugsnag-react-native/cocoa/BugsnagReactNative.xcodeproj"; sourceTree = "<group>"; };
 		DC8AC29369E3477FB8F9A978 /* libRNSVG-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNSVG-tvOS.a"; sourceTree = "<group>"; };
 		EA73345419D949DDAFA5C908 /* libBugsnagReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBugsnagReactNative.a; sourceTree = "<group>"; };
-		EF339C7321D7B79E0094DE15 /* door_unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = door_unlock.mp3; path = ../../../Downloads/small/door_unlock.mp3; sourceTree = "<group>"; };
+		EF1ACBEA21DD8CEB00FC2E0D /* touch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = touch.mp3; path = sounds/touch.mp3; sourceTree = "<group>"; };
+		EF1ACBEB21DD8CEB00FC2E0D /* unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = unlock.mp3; path = sounds/unlock.mp3; sourceTree = "<group>"; };
+		EF1ACBEC21DD8CEB00FC2E0D /* app_open.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = app_open.mp3; path = sounds/app_open.mp3; sourceTree = "<group>"; };
+		EF1ACBED21DD8CEB00FC2E0D /* wood_creak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = wood_creak.mp3; path = sounds/wood_creak.mp3; sourceTree = "<group>"; };
+		EF1ACBEE21DD8CEB00FC2E0D /* key.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = key.mp3; path = sounds/key.mp3; sourceTree = "<group>"; };
+		EF1ACBEF21DD8CEB00FC2E0D /* slide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = slide.mp3; path = sounds/slide.mp3; sourceTree = "<group>"; };
+		EF1ACBF021DD8CEB00FC2E0D /* door_unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = door_unlock.mp3; path = sounds/door_unlock.mp3; sourceTree = "<group>"; };
+		EF1ACBF121DD8CEB00FC2E0D /* drawer_open_close.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = drawer_open_close.mp3; path = sounds/drawer_open_close.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -626,7 +640,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				EF339C7321D7B79E0094DE15 /* door_unlock.mp3 */,
+				EF1ACBEC21DD8CEB00FC2E0D /* app_open.mp3 */,
+				EF1ACBF021DD8CEB00FC2E0D /* door_unlock.mp3 */,
+				EF1ACBF121DD8CEB00FC2E0D /* drawer_open_close.mp3 */,
+				EF1ACBEE21DD8CEB00FC2E0D /* key.mp3 */,
+				EF1ACBEF21DD8CEB00FC2E0D /* slide.mp3 */,
+				EF1ACBEA21DD8CEB00FC2E0D /* touch.mp3 */,
+				EF1ACBEB21DD8CEB00FC2E0D /* unlock.mp3 */,
+				EF1ACBED21DD8CEB00FC2E0D /* wood_creak.mp3 */,
 				13B07FAE1A68108700A75B9A /* Locked */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* LockedTests */,
@@ -1191,10 +1212,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF339C9C21D7B79E0094DE15 /* door_unlock.mp3 in Resources */,
 				EF33027D21D569DE0010C1A0 /* AbrilFatface-Regular.ttf in Resources */,
+				EF1ACBF721DD8CEB00FC2E0D /* slide.mp3 in Resources */,
+				EF1ACBF321DD8CEB00FC2E0D /* unlock.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				EF1ACBF221DD8CEB00FC2E0D /* touch.mp3 in Resources */,
+				EF1ACBF421DD8CEB00FC2E0D /* app_open.mp3 in Resources */,
+				EF1ACBF521DD8CEB00FC2E0D /* wood_creak.mp3 in Resources */,
+				EF1ACBF621DD8CEB00FC2E0D /* key.mp3 in Resources */,
+				EF1ACBF821DD8CEB00FC2E0D /* door_unlock.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				EF1ACBF921DD8CEB00FC2E0D /* drawer_open_close.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
