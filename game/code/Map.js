@@ -4,7 +4,7 @@ import Behavior from './Behavior';
 import Item from './Item';
 import Inventory from './Inventory';
 import { wildcardCompare } from './Utilities';
-import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
+// import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
 
 export default class Map 
 {
@@ -34,7 +34,7 @@ export default class Map
 
     trigger(type, target) {
 
-        PlaySound('door_unlock')
+        // PlaySound('door_unlock')
 
         if (this.levelComplete) {
             return;

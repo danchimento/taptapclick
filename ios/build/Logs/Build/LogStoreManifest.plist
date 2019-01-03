@@ -5,65 +5,6 @@
 	<key>logFormatVersion</key>
 	<integer>9</integer>
 	<key>logs</key>
-	<dict>
-		<key>BE45E50C-09C7-41FF-810B-F028338A6617</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>BE45E50C-09C7-41FF-810B-F028338A6617.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>S</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Locked project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Locked</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project Locked with scheme Locked and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>568175915.50549901</real>
-			<key>timeStoppedRecording</key>
-			<real>568175917.13375103</real>
-			<key>title</key>
-			<string>Building project Locked with scheme Locked and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>BE45E50C-09C7-41FF-810B-F028338A6617</string>
-		</dict>
-		<key>E0851883-7C52-4DD0-9FE1-34745AF76D1C</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>E0851883-7C52-4DD0-9FE1-34745AF76D1C.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>S</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Locked project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Locked</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project Locked with scheme Locked and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>568175725.49264705</real>
-			<key>timeStoppedRecording</key>
-			<real>568175726.70760798</real>
-			<key>title</key>
-			<string>Building project Locked with scheme Locked and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>E0851883-7C52-4DD0-9FE1-34745AF76D1C</string>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

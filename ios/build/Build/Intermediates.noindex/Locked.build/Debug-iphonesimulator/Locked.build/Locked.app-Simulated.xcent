@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>G3L36Y6ELD.org.reactjs.native.example.Locked</string>
+	<string>G3L36Y6ELD.com.chimento.locked</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>G3L36Y6ELD.org.reactjs.native.example.Locked</string>
+		<string>G3L36Y6ELD.com.chimento.locked</string>
 	</array>
 </dict>
 </plist>

@@ -6,10 +6,9 @@
     "ios": "react-native run-ios"
   },
   "dependencies": {
+    "bugsnag-react-native": "^2.12.6",
     "react": "16.3.1",
-    "react-native": "^0.57.3",
-    "react-native-play-sound": "^1.0.24",
-    "bugsnag-react-native": "^2.12.6"
+    "react-native": "^0.57.3"
   },
   "devDependencies": {
     "@babel/runtime": "7.0.0",
