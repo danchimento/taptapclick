@@ -10,5 +10,4 @@ dependencies: \
   /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
   /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
   /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
-  ../node_modules/bugsnag-react-native/cocoa/BugsnagReactNative.h
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h

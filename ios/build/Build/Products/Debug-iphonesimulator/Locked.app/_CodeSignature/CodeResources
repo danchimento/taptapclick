@@ -10,7 +10,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		ys2OWNx7OnIKGP/Y8ApdhfOk8Dc=
+		t/xh0HDY9YRWDUcGDxVWdTS5S18=
 		</data>
 		<key>Frameworks/XCTest.framework/Info.plist</key>
 		<data>
@@ -43,7 +43,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2BYJZPT3Sk0AugMtkBNOOvErm6M=
+		fUK0OvV+C72TrH7bhKD37tWEuvs=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -55,7 +55,7 @@
 		</data>
 		<key>PlugIns/LockedTests.xctest.dSYM/Contents/Resources/DWARF/LockedTests</key>
 		<data>
-		0SRYYHDjaakPutYPAtQ/dD5oLec=
+		QsBJyjaTA2d2H8KyFXi3AGY4F8Y=
 		</data>
 		<key>PlugIns/LockedTests.xctest/Info.plist</key>
 		<data>
@@ -63,15 +63,11 @@
 		</data>
 		<key>PlugIns/LockedTests.xctest/LockedTests</key>
 		<data>
-		pH6X5ki7wk87Lle7IBkaBtxGV/I=
+		bSkWnhYgMUnvs2X5Z+CO3o6SfgM=
 		</data>
 		<key>PlugIns/LockedTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
 		zi5efnk529ENAhAVO4V3BDpe7JU=
-		</data>
-		<key>door_unlock.mp3</key>
-		<data>
-		LD/66pHbejjZCrUujYXpYFkqZxs=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -91,11 +87,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ys2OWNx7OnIKGP/Y8ApdhfOk8Dc=
+			t/xh0HDY9YRWDUcGDxVWdTS5S18=
 			</data>
 			<key>hash2</key>
 			<data>
-			OXnnfOEbRsR7088rFuninQp0HAOr3xD8W8iu/Z3hiuY=
+			lOk9sMnZ8riAwq9iatKk7z+2klY0VLGA1qHvuXZ9JYQ=
 			</data>
 		</dict>
 		<key>Frameworks/XCTest.framework/Info.plist</key>
@@ -181,11 +177,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0SRYYHDjaakPutYPAtQ/dD5oLec=
+			QsBJyjaTA2d2H8KyFXi3AGY4F8Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			9TJIAruNzP87NZlBUEZxoQRLU00j2CtUdlpyMBQy5Tk=
+			ZfqT59pvFXVV0BrkF4oAg/iuhl1V0ljq7R1zcah8n3I=
 			</data>
 		</dict>
 		<key>PlugIns/LockedTests.xctest/Info.plist</key>
@@ -203,11 +199,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pH6X5ki7wk87Lle7IBkaBtxGV/I=
+			bSkWnhYgMUnvs2X5Z+CO3o6SfgM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z9AXWhWPW7hfQ/PjrET/J/7fY2OSKB18pwCyP6WlJNo=
+			VwVjewNKENrjhXgxAfHmVK2v1HfONmwPxUefMu5cI+U=
 			</data>
 		</dict>
 		<key>PlugIns/LockedTests.xctest/_CodeSignature/CodeResources</key>
@@ -219,17 +215,6 @@
 			<key>hash2</key>
 			<data>
 			VcdSnk1HE981OclFV/ERSEFihuym5l09f96WMPivIJE=
-			</data>
-		</dict>
-		<key>door_unlock.mp3</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LD/66pHbejjZCrUujYXpYFkqZxs=
-			</data>
-			<key>hash2</key>
-			<data>
-			Lp59PIvfU11lj+QLiE5S/1lmk4B3/IexOWOzgNn4gsk=
 			</data>
 		</dict>
 	</dict>
