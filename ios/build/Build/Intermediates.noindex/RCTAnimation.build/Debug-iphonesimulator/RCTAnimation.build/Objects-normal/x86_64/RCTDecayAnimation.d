@@ -1,0 +1,19 @@
+dependencies: \
+  /Users/danielchimento/projects/Locked/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTDecayAnimation.m \
+  /Users/danielchimento/projects/Locked/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTDecayAnimation.h \
+  /Users/danielchimento/projects/Locked/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTAnimationDriver.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/danielchimento/projects/Locked/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/danielchimento/projects/Locked/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTValueAnimatedNode.h \
+  /Users/danielchimento/projects/Locked/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAnimatedNode.h

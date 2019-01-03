@@ -7,8 +7,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.2.0",
+    "bugsnag-react-native": "^2.12.6",
     "react": "16.5.0",
     "react-native": "0.57.1",
+    "react-native-play-sound": "^1.0.24",
     "react-native-svg": "^8.0.10"
   },
   "devDependencies": {

@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagCrashSentry.m \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrashAdvanced.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrash.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSSystemCapabilities.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Reporting/Filters/BSG_KSCrashReportFilterCompletion.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BSG_KSCrashReportWriter.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrashType.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Reporting/Filters/BSG_KSCrashReportFilter.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrashReportStore.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagFileStore.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrashC.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrashContext.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/Sentry/BSG_KSCrashSentry.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/Tools/BSG_KSArchSpecific.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/KSCrash/Source/KSCrash/Recording/BSG_KSCrashState.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagCrashSentry.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagConfiguration.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagBreadcrumb.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagCrashReport.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagMetaData.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagErrorReportApiClient.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagApiClient.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagLogger.h \
+  /Users/danielchimento/projects/Locked/node_modules/bugsnag-react-native/cocoa/vendor/bugsnag-cocoa/Source/BugsnagSink.h

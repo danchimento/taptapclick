@@ -4,6 +4,7 @@ import Behavior from './Behavior';
 import Item from './Item';
 import Inventory from './Inventory';
 import { wildcardCompare } from './Utilities';
+import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
 
 export default class Map 
 {
@@ -26,10 +27,14 @@ export default class Map
         this.message = "";
         this.levelComplete = false;
 
+      //  throw("Test Error on Map init")
+
         this._parseScript(this._script.map);
     }
 
     trigger(type, target) {
+
+        PlaySound('door_unlock')
 
         if (this.levelComplete) {
             return;

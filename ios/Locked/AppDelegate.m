@@ -9,6 +9,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <BugsnagReactNative.h>
 
 @implementation AppDelegate
 
@@ -33,6 +34,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [BugsnagReactNative start];
   return YES;
 }
 
