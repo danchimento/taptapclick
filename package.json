@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "bugsnag-react-native": "^2.12.6",
-    "react": "16.3.1",
+    "react": "16.6.3",
     "react-native": "^0.57.3"
   },
   "devDependencies": {
