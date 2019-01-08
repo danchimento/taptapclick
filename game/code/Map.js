@@ -206,7 +206,7 @@ export default class Map
     selectItem(itemName) {
         this.inventory.selectItem(itemName);
         
-        if (this.inventory.selectedItem.description) {
+        if (this.inventory.selectedItem && this.inventory.selectedItem.description) {
             this.message = this.inventory.selectedItem.description
         }
     }
