@@ -45,19 +45,19 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 75,
-        fontFamily: "Abril Fatface",
+        fontFamily: "AbrilFatface-Regular",
         color: "#ffffff",
         textAlign: "center"
     },
     subtitle: {
         fontSize: 20,
-        fontFamily: "Abril Fatface",
+        fontFamily: "AbrilFatface-Regular",
         color: "#ffffff",
         textAlign: "center"
     },
     startButton: {
         fontSize: 50,
-        fontFamily: "Abril Fatface",
+        fontFamily: "AbrilFatface-Regular",
         color: "#ffffff",
         textDecorationLine: "underline"
     },

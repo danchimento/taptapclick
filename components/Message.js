@@ -27,6 +27,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 25,
         color: "#EDECE1",
-       fontFamily: "Abril Fatface"
+       fontFamily: "AbrilFatface-Regular"
     }
 });
