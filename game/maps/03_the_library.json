@@ -269,27 +269,41 @@
         ],
         "behaviors": [
             {
+                "target": "door",
+                "trigger": "tap",
+                "conditions": [{
+                    "target": "door",
+                    "state": "locked"
+                }],
+                "actions": [{
+                    "message": "It's locked.",
+                    "sound": "touch"
+                }]
+            },
+            {
                 "trigger": "tap",
                 "target": "door",
-                "actions": [{
-                    "target": "door",
-                    "state": "open"  
-                },{
-                    "endLevel": "end_level"
-                }],
                 "conditions": [
                     {
                         "state": "unlocked",
                         "target": "door"
                     }
-                ]
+                ],
+                "actions": [{
+                    "target": "door",
+                    "state": "open",
+                    "sound": "wood_creak"  
+                },{
+                    "endLevel": "end_level"
+                }]
             },
             {
                 "trigger": "use_item",
                 "target": "bookshelf-2",
                 "actions": [{
                     "target": "door",
-                    "state": "unlocked"
+                    "state": "unlocked",
+                    "sound": "click"
                 }, {
                     "consumeItem": true
                 }, {
@@ -315,7 +329,8 @@
                 "target": "bookshelf-5",
                 "actions": [{
                     "target": "door",
-                    "state": "unlocked"
+                    "state": "unlocked",
+                    "sound": "unlock"
                 },{
                     "consumeItem": true
                 }, {
@@ -341,7 +356,8 @@
                 "target": "bookshelf-9",
                 "actions": [{
                     "target": "door",
-                    "state": "unlocked"
+                    "state": "unlocked",
+                    "sound": "click"
                 },{
                     "consumeItem": true
                 }, {

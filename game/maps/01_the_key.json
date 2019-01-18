@@ -122,6 +122,8 @@
                 "actions": [{
                     "endLevel": "end_level"
                 }, {
+                    "sound": "wood_creak"
+                }, {
                     "state": "open",
                     "target": "door"
                 }]
@@ -135,6 +137,8 @@
                 }],
                 "actions": [{
                     "message": "It's locked."
+                }, {
+                    "sound": "touch"
                 }]
             },
             {
@@ -145,6 +149,8 @@
                 }, {
                     "target": "door",
                     "state": "locked"
+                }, {
+                    "sound": "touch"
                 }],
                 "actions": [{
                     "state": "unlocked",
@@ -153,6 +159,8 @@
                     "consumeItem": true
                 }, {
                     "message": "*click*"
+                }, {
+                    "sound": "unlock"
                 }]
             },
             {
@@ -165,6 +173,8 @@
                 "actions": [{
                     "state": "chest_closed",
                     "target": "chest"
+                }, {
+                    "sound": "touch"
                 }]
             },
             {
@@ -177,6 +187,8 @@
                 "actions": [{
                     "target": "chest",
                     "state": "chest_open"
+                },{
+                    "sound": "door_unlock"
                 }]
             }
         ],

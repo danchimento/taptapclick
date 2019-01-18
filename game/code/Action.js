@@ -6,5 +6,6 @@ export default class Action {
         this.endLevel = script.endLevel;
         this.moveItem = script.moveItem;
         this.consumeItem = script.consumeItem;
+        this.sound = script.sound;
     }
 }

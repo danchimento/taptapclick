@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>05EF9AB0-327F-4411-B519-A9F6B31DF728</key>
+		<key>4854D0F0-BAB8-41C1-80D0-2E4EF8B7F269</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>05EF9AB0-327F-4411-B519-A9F6B31DF728.xcactivitylog</string>
+			<string>4854D0F0-BAB8-41C1-80D0-2E4EF8B7F269.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
@@ -27,15 +27,15 @@
 			<key>signature</key>
 			<string>Building project Locked with scheme Locked and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>568679668.83324599</real>
+			<real>569463601.32730997</real>
 			<key>timeStoppedRecording</key>
-			<real>568680033.52565598</real>
+			<real>569463630.35055995</real>
 			<key>title</key>
 			<string>Building project Locked with scheme Locked and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>05EF9AB0-327F-4411-B519-A9F6B31DF728</string>
+			<string>4854D0F0-BAB8-41C1-80D0-2E4EF8B7F269</string>
 		</dict>
-		<key>88ACD677-5AC9-451D-940E-09257943FE45</key>
+		<key>C7F0A3CF-AD0E-4D4B-8377-160F0B65B7F8</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -44,9 +44,9 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>88ACD677-5AC9-451D-940E-09257943FE45.xcactivitylog</string>
+			<string>C7F0A3CF-AD0E-4D4B-8377-160F0B65B7F8.xcactivitylog</string>
 			<key>highLevelStatus</key>
-			<string>E</string>
+			<string>W</string>
 			<key>schemeIdentifier-containerName</key>
 			<string>Locked project</string>
 			<key>schemeIdentifier-schemeName</key>
@@ -56,13 +56,13 @@
 			<key>signature</key>
 			<string>Building project Locked with scheme Locked and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>568679164.73636997</real>
+			<real>569464104.09531903</real>
 			<key>timeStoppedRecording</key>
-			<real>568679169.38691401</real>
+			<real>569464136.63522303</real>
 			<key>title</key>
 			<string>Building project Locked with scheme Locked and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>88ACD677-5AC9-451D-940E-09257943FE45</string>
+			<string>C7F0A3CF-AD0E-4D4B-8377-160F0B65B7F8</string>
 		</dict>
 	</dict>
 </dict>

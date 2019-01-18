@@ -175,7 +175,8 @@
                 }],
                 "actions": [{
                     "target": "door",
-                    "state": "open"
+                    "state": "open",
+                    "sound": "wood_creak"
                 },{
                     "endLevel": true
                 }]
@@ -188,7 +189,8 @@
                     "state": "locked"
                 }],
                 "actions": [{
-                    "message": "The door is locked."
+                    "message": "It's locked.",
+                    "sound": "touch"
                 }]
             },
             {
@@ -199,7 +201,8 @@
                 }],
                 "actions": [{
                     "state": "unlocked",
-                    "target": "door"
+                    "target": "door",
+                    "sound": "unlock"
                 },
                 {
                     "consumeItem": "book2"
@@ -233,6 +236,8 @@
                 }, {
                     "consumeItem": "paper*",
                     "target": "book"
+                }, {
+                    "sound": "touch"
                 }]
             }
         ],
