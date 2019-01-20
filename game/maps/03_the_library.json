@@ -303,7 +303,7 @@
                 "actions": [{
                     "target": "door",
                     "state": "unlocked",
-                    "sound": "click"
+                    "sound": "unlock"
                 }, {
                     "consumeItem": true
                 }, {
@@ -357,7 +357,7 @@
                 "actions": [{
                     "target": "door",
                     "state": "unlocked",
-                    "sound": "click"
+                    "sound": "unlock"
                 },{
                     "consumeItem": true
                 }, {

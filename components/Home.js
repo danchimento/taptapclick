@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableWithoutFeedback } from 'react-native';
-import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
+import SoundManger from '../game/code/SoundManager';
 
 export default class Home extends React.Component {
 
   constructor() {
     super();
 
-    PlaySound('app_open')
+    this._soundManager = new SoundManger();
+    this._soundManager.playSound("app_open");
   }
 
   render() {

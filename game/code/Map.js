@@ -4,7 +4,7 @@ import Behavior from './Behavior';
 import Item from './Item';
 import Inventory from './Inventory';
 import { wildcardCompare } from './Utilities';
-import { PlaySound, StopSound, PlaySoundRepeat, PlaySoundMusicVolume } from 'react-native-play-sound';
+import SoundManager from './SoundManager'
 
 export default class Map 
 {
@@ -16,6 +16,7 @@ export default class Map
         this.items = [];
         this.currentRoom = null;
         this._script = script;
+        this._soundManager = new SoundManager();
     }
 
     init () {
@@ -173,7 +174,7 @@ export default class Map
         }
 
         if (action.sound) {
-            PlaySound(action.sound);
+            this._soundManager.playSound(action.sound)
         }
 
         // Consume Item

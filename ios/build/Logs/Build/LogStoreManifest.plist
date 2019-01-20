@@ -6,35 +6,6 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>4854D0F0-BAB8-41C1-80D0-2E4EF8B7F269</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>4854D0F0-BAB8-41C1-80D0-2E4EF8B7F269.xcactivitylog</string>
-			<key>highLevelStatus</key>
-			<string>W</string>
-			<key>schemeIdentifier-containerName</key>
-			<string>Locked project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>Locked</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building project Locked with scheme Locked and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>569463601.32730997</real>
-			<key>timeStoppedRecording</key>
-			<real>569463630.35055995</real>
-			<key>title</key>
-			<string>Building project Locked with scheme Locked and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>4854D0F0-BAB8-41C1-80D0-2E4EF8B7F269</string>
-		</dict>
 		<key>C7F0A3CF-AD0E-4D4B-8377-160F0B65B7F8</key>
 		<dict>
 			<key>className</key>
