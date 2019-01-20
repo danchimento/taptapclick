@@ -48,6 +48,7 @@
 		EFD7AAF521F14DE2000201BB /* door_unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EFD7AAED21F14DE2000201BB /* door_unlock.mp3 */; };
 		EFD7AAF621F14DE2000201BB /* wood_creak.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EFD7AAEE21F14DE2000201BB /* wood_creak.mp3 */; };
 		EFD7AAF721F14DE2000201BB /* unlock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EFD7AAEF21F14DE2000201BB /* unlock.mp3 */; };
+		EFD7AB4821F4E519000201BB /* LockedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD7AB4721F4E519000201BB /* LockedUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +332,13 @@
 			remoteGlobalIDString = 19825A1E1BD4A89800EE0337;
 			remoteInfo = RNSound;
 		};
+		EFD7AB4A21F4E519000201BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = Locked;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -372,6 +380,9 @@
 		EFD7AAED21F14DE2000201BB /* door_unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = door_unlock.mp3; sourceTree = "<group>"; };
 		EFD7AAEE21F14DE2000201BB /* wood_creak.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wood_creak.mp3; sourceTree = "<group>"; };
 		EFD7AAEF21F14DE2000201BB /* unlock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unlock.mp3; sourceTree = "<group>"; };
+		EFD7AB4521F4E519000201BB /* LockedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFD7AB4721F4E519000201BB /* LockedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedUITests.swift; sourceTree = "<group>"; };
+		EFD7AB4921F4E519000201BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F329A35C52A44C73A9BCDFDE /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -419,6 +430,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFD7AB4221F4E519000201BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +620,7 @@
 				EFD7AAEE21F14DE2000201BB /* wood_creak.mp3 */,
 				13B07FAE1A68108700A75B9A /* Locked */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				EFD7AB4621F4E519000201BB /* LockedUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				536DF808F0224AFE8C399591 /* Resources */,
@@ -618,6 +637,7 @@
 				13B07F961A680F5B00A75B9A /* Locked.app */,
 				2D02E47B1E0B4A5D006451C7 /* Locked-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* Locked-tvOSTests.xctest */,
+				EFD7AB4521F4E519000201BB /* LockedUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -656,6 +676,15 @@
 				EFD7AB4021F15D3D000201BB /* libRNSound.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EFD7AB4621F4E519000201BB /* LockedUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EFD7AB4721F4E519000201BB /* LockedUITests.swift */,
+				EFD7AB4921F4E519000201BB /* Info.plist */,
+			);
+			path = LockedUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,12 +744,31 @@
 			productReference = 2D02E4901E0B4A5D006451C7 /* Locked-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EFD7AB4421F4E519000201BB /* LockedUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFD7AB4C21F4E519000201BB /* Build configuration list for PBXNativeTarget "LockedUITests" */;
+			buildPhases = (
+				EFD7AB4121F4E519000201BB /* Sources */,
+				EFD7AB4221F4E519000201BB /* Frameworks */,
+				EFD7AB4321F4E519000201BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFD7AB4B21F4E519000201BB /* PBXTargetDependency */,
+			);
+			name = LockedUITests;
+			productName = LockedUITests;
+			productReference = EFD7AB4521F4E519000201BB /* LockedUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -736,6 +784,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
+					};
+					EFD7AB4421F4E519000201BB = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 				};
 			};
@@ -813,6 +866,7 @@
 				13B07F861A680F5B00A75B9A /* Locked */,
 				2D02E47A1E0B4A5D006451C7 /* Locked-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* Locked-tvOSTests */,
+				EFD7AB4421F4E519000201BB /* LockedUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1127,6 +1181,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EFD7AB4321F4E519000201BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1186,6 +1247,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EFD7AB4121F4E519000201BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFD7AB4821F4E519000201BB /* LockedUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1193,6 +1262,11 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* Locked-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
+		};
+		EFD7AB4B21F4E519000201BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* Locked */;
+			targetProxy = EFD7AB4A21F4E519000201BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1503,6 +1577,61 @@
 			};
 			name = Release;
 		};
+		EFD7AB4D21F4E519000201BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LockedUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chimento.LockedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Locked;
+			};
+			name = Debug;
+		};
+		EFD7AB4E21F4E519000201BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LockedUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chimento.LockedUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Locked;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1538,6 +1667,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFD7AB4C21F4E519000201BB /* Build configuration list for PBXNativeTarget "LockedUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFD7AB4D21F4E519000201BB /* Debug */,
+				EFD7AB4E21F4E519000201BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

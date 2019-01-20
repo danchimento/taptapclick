@@ -59,5 +59,7 @@
 	<array>
 		<string>AbrilFatface-Regular.ttf</string>
 	</array>
+  <key>BugsnagAPIKey</key>
+  <string>0d95f2767f26d196a3fbe6d93c122b64</string>
 </dict>
 </plist>

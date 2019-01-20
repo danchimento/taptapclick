@@ -28,8 +28,6 @@ export default class Map
         this.message = "";
         this.levelComplete = false;
 
-      //  throw("Test Error on Map init")
-
         this._parseScript(this._script.map);
     }
 

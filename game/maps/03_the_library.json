@@ -74,7 +74,8 @@
                         "name": "book-1",
                         "appearance": {
                             "image": "book"
-                        }
+                        },
+                        "description": "'One Love' by Arthur B." 
                     }]
                 }
             },
@@ -130,7 +131,8 @@
                         "name": "book-2",
                         "appearance": {
                             "image": "book"
-                        }
+                        },
+                        "description": "'A Tale of Destruction' by Jason S." 
                     }]
                 }
             },
@@ -220,7 +222,8 @@
                         "name": "book-3",
                         "appearance": {
                             "image": "book"
-                        }
+                        },
+                        "description": "'The Anatomy of a Strawberry' by Lousia K." 
                     }]
                 }
             },

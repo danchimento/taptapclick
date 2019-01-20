@@ -123,7 +123,8 @@
                 },
                 "appearance": {
                     "image": "paper"
-                }
+                },
+                "description": "A loose sheet of paper with writing."
             }, 
             {
                 "name": "paper-2",
@@ -134,7 +135,8 @@
                 },
                 "appearance": {
                     "image": "paper"
-                }
+                },
+                "description": "A loose sheet of paper with writing."
             }, 
             {
                 "name": "paper-3",
@@ -145,7 +147,8 @@
                 },
                 "appearance": {
                     "image": "paper"
-                }
+                },
+                "description": "A loose sheet of paper with writing."
             }, 
             {
                 "name": "paper-4",
@@ -156,7 +159,8 @@
                 },
                 "appearance": {
                     "image": "paper"
-                }
+                },
+                "description": "A loose sheet of paper with writing."
             }, 
             {
                 "name": "book2",
