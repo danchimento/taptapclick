@@ -4,6 +4,8 @@ import SoundManger from '../game/code/SoundManager';
 
 export default class Home extends React.Component {
 
+  static navigationOptions = { title: 'Home', header: null };
+
   constructor() {
     super();
 
@@ -12,6 +14,9 @@ export default class Home extends React.Component {
   }
 
   render() {
+
+    var onLevelSelectMenu = this.props.onLevelSelectMenu;
+
     return (
       <View style={styles.home}>
             <View style={styles.header}> 
@@ -19,7 +24,7 @@ export default class Home extends React.Component {
                 <Text style={styles.subtitle}>A puzzle game</Text>
             </View>
             <View style={styles.controls}>
-                <TouchableWithoutFeedback onPress={this.props.onStartGame}>
+                <TouchableWithoutFeedback onPress={() => { this.props.onStartGame() }}>
                     <Text style={styles.startButton}>Start</Text>
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback onPress={this.props.onLevelSelectMenu}>

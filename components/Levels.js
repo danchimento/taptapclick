@@ -3,10 +3,13 @@ import { StyleSheet, Text, View, ScrollView, Button, TouchableWithoutFeedback } 
 
 export default class Levels extends React.Component {
 
+  static navigationOptions = { title: 'Levels', header: null };
+
+
   constructor() {
     super();
 
-  }
+    }
 
   render() {
     return (
@@ -16,7 +19,7 @@ export default class Levels extends React.Component {
             </View>
             <ScrollView style={styles.levels}>
 
-                {this.props.levels.map((level) => {
+                {this.props.game && this.props.game.levels.map((level) => {
                     return (
                         <View style={styles.level} key={level.name}>
                             <TouchableWithoutFeedback 
@@ -29,7 +32,7 @@ export default class Levels extends React.Component {
 
             </ScrollView>
             <View style={styles.menuButtonContainer}>
-                <TouchableWithoutFeedback onPress={this.props.onMenu}>
+                <TouchableWithoutFeedback onPress={() => { this.props.navigation.navigate('Home')}}>
                     <Text style={styles.menuButton}>Menu</Text>
                 </TouchableWithoutFeedback>
             </View>

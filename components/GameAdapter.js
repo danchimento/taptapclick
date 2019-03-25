@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Animated, TextView, Button } from 'react-native';
 import Game from '../game/code/Game';
 import MapAdapter from './MapAdapter';
 //import { Font } from 'expo';
@@ -7,8 +7,17 @@ import Home from './Home';
 import Levels from './Levels';
 import LevelComplete from './LevelComplete';
 import { AsyncStorage } from "react-native"
+import Fade from './Fade';
 
 export default class GameAdapter extends React.Component {
+
+
+  states = {
+    HOME: "HOME",
+    LEVEL_SELECT: "LEVEL_SELECT",
+    LEVEL_COMPLETE: "LEVEL_COMPLETE",
+    PLAYING: "PLAYING"
+  }
 
   constructor() {
     super();
@@ -16,11 +25,11 @@ export default class GameAdapter extends React.Component {
     this.maps = [];
     this.currentMap = null;
     this.game = new Game();
-    this.selectingLevels = false;
     this.game.onUpdateGameState = () => this.handleLevelComplete();
-    
-    this.state = { 
-      fontLoaded: false 
+
+    this.state = {
+      fontLoaded: false,
+      state: this.states.HOME
     }
 
     this.init();
@@ -36,8 +45,8 @@ export default class GameAdapter extends React.Component {
     //   'AbrilFatface': require('../assets/fonts/AbrilFatface-Regular.ttf'),
     // });
 
-    this.setState({ 
-      fontLoaded: true 
+    this.setState({
+      fontLoaded: true,
     });
   }
 
@@ -45,32 +54,35 @@ export default class GameAdapter extends React.Component {
 
     var saveData = this.game.getSaveData();
     this._saveData(saveData);
+    this.setState({ state: this.states.LEVEL_COMPLETE });
 
     this.forceUpdate();
   }
 
   handleStartGame() {
     this.game.start()
+    this.setState({ state: this.states.PLAYING })
 
     this.forceUpdate();
   }
 
   handleMenu() {
     this.game.stop();
-    this.selectingLevels = false;
+    this.setState({ state: this.states.HOME })
 
     this.forceUpdate();
   }
 
   handleLevelSelectMenu() {
-    this.selectingLevels = true; 
+    this.setState({ state: this.states.LEVEL_SELECT })
 
     this.forceUpdate();
   }
 
   handleLevelSelected(levelName) {
     this.game.startLevel(levelName);
-    this.selectingLevels = false;
+    this.setState({ state: this.states.PLAYING })
+
     this.forceUpdate();
   }
 
@@ -79,48 +91,28 @@ export default class GameAdapter extends React.Component {
     this.forceUpdate();
   }
 
-  _saveData = async (levels) => {
-    try {
-      await AsyncStorage.setItem('@CHIMENTO:LOCKED:LEVELS', JSON.stringify(levels));
-    } catch (error) {
-      // Error saving data
-    }
-  }
-
-  _getSaveData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('@CHIMENTO:LOCKED:LEVELS');
-      if (value !== null) {
-        return JSON.parse(value);
-      }
-     } catch (error) {
-       // Error retrieving data
-     }
-  }
-
+  
   render() {
+
+    let { state } = this.state;
+
     if (!this.state.fontLoaded) {
       return (<View></View>)
     }
 
-    if (!this.game.playing) {
-      if (this.selectingLevels) {
-        return (<Levels levels={this.game.levels} onLevelSelect={(levelName) => this.handleLevelSelected(levelName)} onMenu={() => this.handleMenu()} />)
-      }
+    return(
+          // <Levels levels={this.game.levels} onLevelSelect={(levelName) => this.handleLevelSelected(levelName)} onMenu={() => this.handleMenu()} />
 
-      if (this.game.levelComplete) {
-        return (<LevelComplete onNext={() => this.handleNext()} onMenu={() => this.handleMenu()} />)
-      }
+          // <LevelComplete onNext={() => this.handleNext()} onMenu={() => this.handleMenu()} />
+        
+          <Home onLevelSelectMenu={() => this.handleLevelSelectMenu()} onStartGame={() => this.handleStartGame()} />
 
-      return (<Home onLevelSelectMenu={() => this.handleLevelSelectMenu()} onStartGame={() => this.handleStartGame()} />)
-    }
-
-    return (<MapAdapter onMenu={() => this.handleMenu()}  map={this.game.currentMap}/>);
+          // <MapAdapter onMenu={() => this.handleMenu()}  map={this.game.currentMap}/>
+    )
   }
 }
 
 const styles = StyleSheet.create({
-    gameContainer: {
-
-    }
+  gameContainer: {
+  },
 });
