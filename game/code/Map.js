@@ -143,6 +143,15 @@ export default class Map
   
         return visibleGameObjects;
     }
+
+    _navigateToRoom(roomName) {
+        for (var room of this.rooms) {
+            if (room.name == roomName) {
+                this.currentRoom = room;
+                break;
+            }
+        }
+    }
     
     _performActions(actions) {
         for (var action of actions) {
@@ -195,6 +204,10 @@ export default class Map
                     gameObject.inventory.removeItems(action.consumeItem);
                 }
             }
+        }
+
+        if (action.navigate) {
+            this._navigateToRoom(action.navigate);
         }
 
         // End game actions

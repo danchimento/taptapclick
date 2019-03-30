@@ -1,0 +1,134 @@
+{
+    "map": {
+        "name": "The Gallery",
+        "rooms": [
+            {
+                "name": "south-room",
+                "floor": "floor-1",
+                "layout": [
+                    ["sc-nw", "sw-s", "sw-s", "", "sw-s", "sw-s", "sc-ne"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sc-sw", "sw-n", "sw-n", "sw-n", "sw-n", "sw-n", "sc-se"]
+                ]
+            },
+            {
+                "name": "north-room",
+                "floor": "floor-1",
+                "layout": [
+                    ["sc-nw", "sw-s", "sw-s", "", "sw-s", "sw-s", "sc-ne"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sc-sw", "sw-n", "sw-n", "", "sw-n", "sw-n", "sc-se"]
+                ]
+            }
+        ],
+        "gameObjects": [
+            {
+                "name": "south-room-doorway",
+                "appearance": [{
+                    "image": "floor-1"
+                }],
+                "position": {
+                    "room": "south-room",
+                    "x": 4,
+                    "y": 1
+                }
+            },
+            {
+                "name": "north-room-doorway",
+                "appearance": [{
+                    "image": "floor-1"
+                }],
+                "position": {
+                    "room": "north-room",
+                    "x": 4,
+                    "y": 7
+                }
+            },
+            {
+                "name": "exit",
+                "state": "locked",
+                "appearance": [
+                    {
+                        "image": "door",
+                        "conditions": [
+                            {
+                                "target": "exit",
+                                "state": "locked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door",
+                        "conditions": [
+                            {
+                                "target": "exit",
+                                "state": "unlocked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door-open",
+                        "conditions": [
+                            {
+                                "target": "exit",
+                                "state": "open"
+                            }
+                        ]
+                    } 
+                ],
+                "position": {
+                    "room": "north-room",
+                    "x": 4,
+                    "y": 1,
+                    "orientation": "south"
+                }
+            }
+        ],
+        "behaviors": [
+            {
+                "target": "south-room-doorway",
+                "trigger": "tap",
+                "actions": [
+                    {
+                        "navigate": "north-room"
+                    }
+                ]
+            },
+            {
+                "target": "north-room-doorway",
+                "trigger": "tap",
+                "actions": [
+                    {
+                        "navigate": "south-room"
+                    }
+                ]
+            }
+        ],
+        "items": [
+
+        ],
+        "inventory": {
+            "items": []
+        }
+    }
+}

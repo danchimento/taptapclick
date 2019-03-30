@@ -9,9 +9,11 @@ export default class Behavior
         this.conditions = [];
         this.actions = [];
 
-        for (var scriptCondition of script.conditions) {
-            var condition = new Condition(scriptCondition);
-            this.conditions.push(condition);
+        if (script.conditions) {
+            for (var scriptCondition of script.conditions) {
+                var condition = new Condition(scriptCondition);
+                this.conditions.push(condition);
+            }
         }
 
         for (var scriptAction of script.actions) {

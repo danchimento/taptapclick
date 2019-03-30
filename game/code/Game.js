@@ -8,6 +8,7 @@ export default class Game {
         this.addLevel(require('../../game/maps/01_the_key.json'));
         this.addLevel(require('../../game/maps/02_the_book.json'));
         this.addLevel(require('../../game/maps/03_the_library.json'));
+        this.addLevel(require('../../game/maps/04_the_gallery.json'));
 
         this.playing = false;
         this.levelComplete = false;

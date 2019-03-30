@@ -7,5 +7,6 @@ export default class Action {
         this.moveItem = script.moveItem;
         this.consumeItem = script.consumeItem;
         this.sound = script.sound;
+        this.navigate = script.navigate;
     }
 }
