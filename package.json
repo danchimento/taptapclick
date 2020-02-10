@@ -1,28 +1,21 @@
 {
-  "name": "Locked",
+  "name": "locked",
   "scripts": {
-    "start": "react-native start",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios"
+    "start": "http-server ./dist -o index.html",
+    "build": "webpack --watch"
   },
-  "dependencies": {
-    "bugsnag-react-native": "^2.12.6",
-    "react": "16.6.3",
-    "react-native": "^0.57.3",
-    "react-native-sound": "^0.10.9"
-  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/runtime": "7.0.0",
-    "babel-jest": "23.6.0",
-    "jest": "23.6.0",
-    "react-test-renderer": "16.6.0-alpha.8af6728",
-    "schedule": "^0.4.0",
-    "metro-react-native-babel-preset": "0.51.1"
+    "copy-webpack-plugin": "^5.1.1",
+    "file-loader": "^5.0.2",
+    "webpack-dev-server": "^3.10.3"
   },
   "rnpm": {
     "assets": [
       "./assets/fonts"
     ]
   },
-  "private": true
+  "private": true,
+  "dependencies": {}
 }
