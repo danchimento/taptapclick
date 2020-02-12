@@ -2,19 +2,16 @@ import Map from './Map';
 
 export default class Game {
 
-    constructor(levelData) {
+    constructor() {
         this.levels = [];
-
-        for (var level of levelData) {
-            this.addLevel(level)
-        }
-
         this.playing = false;
         this.levelComplete = false;
     }
 
-    init() {
-        
+    init(levels) {
+        for (var level of levels) {
+            this.addLevel(level)
+        }
     }
 
     loadData(data) {
