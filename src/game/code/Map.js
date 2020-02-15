@@ -43,7 +43,8 @@ export default class Map
             type = "use_item"
         }
 
-        behaviorsToExecute = [];
+        var behaviorsToExecute = [];
+      //  var actionPerformed = false;
 
         // Look for matching behaviors to execute
         for (var behavior of this.behaviors) {
@@ -57,7 +58,7 @@ export default class Map
         // Execute all matching behaviors
         for (var behavior of behaviorsToExecute) {
             this._performActions(behavior.actions);
-            actionPerformed = true;
+         //   actionPerformed = true;
         }
 
         var object = this._getGameObject(target);

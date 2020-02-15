@@ -44,7 +44,7 @@
                         ]
                     },
                     {
-                        "image": "chest_open",
+                        "image": "chest-open",
                         "conditions": [
                             {
                                 "target": "chest",

@@ -6,7 +6,7 @@ var game = new Game();
 var config = {
     type: Phaser.AUTO,
     width: 800,
-    height: 800,
+    height: 600,
     backgroundColor: "#FFFFFF",
     physics: {
         default: 'arcade',

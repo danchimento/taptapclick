@@ -80,6 +80,42 @@
             "spriteSourceSize": { "x": 0,"y": 0,"w": 100,"h": 100 },
             "sourceSize": { "w": 100,"h": 100 },
             "pivot": { "x": 0.5,"y": 0.5 }
+        },
+        "chest-east":
+        {
+            "frame": { "x": 0,"y": 200,"w": 64,"h": 74 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0,"y": 0,"w": 64,"h": 74 },
+            "sourceSize": { "w": 64,"h": 74 },
+            "pivot": { "x": 0.5,"y": 0.5 }
+        },
+        "chest-open-east":
+        {
+            "frame": { "x": 64,"y": 200,"w": 64,"h": 74 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0,"y": 0,"w": 64,"h": 74 },
+            "sourceSize": { "w": 64,"h": 74 },
+            "pivot": { "x": 0.5,"y": 0.5 }
+        },
+        "door-south":
+        {
+            "frame": { "x": 0,"y": 274,"w": 100,"h": 100 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0,"y": 0,"w": 100,"h": 100 },
+            "sourceSize": { "w": 100,"h": 100 },
+            "pivot": { "x": 0.5,"y": 0.5 }
+        },
+        "door_open-south":
+        {
+            "frame": { "x": 100,"y": 274,"w": 100,"h": 100 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0,"y": 0,"w": 100,"h": 100 },
+            "sourceSize": { "w": 100,"h": 100 },
+            "pivot": { "x": 0.5,"y": 0.5 }
         }
     }
 }
