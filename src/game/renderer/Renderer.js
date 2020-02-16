@@ -38,10 +38,10 @@ export default class Renderer {
 
     drawText(x, y, text) {
         var txt = this.ui.add.text((500 * this.scale) / 2, y, text, { 
-            fontFamily: 'Arial', 
+            fontFamily: 'Abril', 
             align: 'center',
             fontSize: 52, 
-            color: '#000',
+            color: '#EDECE1',
             wordWrap: { width: 500 * this.scale },
         });
         txt.setOrigin(.5)

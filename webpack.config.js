@@ -16,12 +16,25 @@ module.exports = {
                     'file-loader',
                 ],
             },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ],
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [
+                    'file-loader',
+                ],
+            },
         ],
     },
     plugins: [
         new CopyWebpackPlugin([
-            {from:'./src/game/resources/map',to:'resources/map'},
-            {from:'./src/index.html',to:''},
-        ]), 
+            { from: './src/game/resources/map', to: 'resources/map' },
+            { from: './src/index.html', to: '' },
+        ]),
     ]
 };

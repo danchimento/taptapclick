@@ -1,5 +1,6 @@
 import Game from './game/code/Game.js';
 import GameRenderer from './game/renderer/GameRenderer.js';
+import './app.css';
 
 var game = new Game();
 
@@ -9,7 +10,7 @@ var config = {
     type: Phaser.AUTO,
     width: 500 * scale,
     height: 1000 * scale,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#2B4570",
     physics: {
         default: 'arcade',
     },
