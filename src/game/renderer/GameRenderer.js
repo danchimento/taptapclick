@@ -1,12 +1,16 @@
 import level1 from '../maps/01_the_key.json';
+import InventoryRenderer from './InventoryRenderer';
+import Renderer from './Renderer';
 
-export default class GameRenderer {
-    constructor(game, ui) {
+export default class GameRenderer extends Renderer {
+    constructor(game, ui, scale) {
+        super(ui, scale);
+
         this.game = game;
         this.ui = ui;
 
-        this.tileWidth = 100;
-        this.tileHeight = 100;
+        this.tileWidth = 64;
+        this.tileHeight = 64;
 
         var levels = [
             level1
@@ -14,39 +18,52 @@ export default class GameRenderer {
         
         this.game.init(levels);
         this.game.start();
+
+        this.inventoryRenderer = new InventoryRenderer(ui, scale, this.game.currentMap.inventory);
+        this.inventoryRenderer.onItemSelected = (item) => {
+            this.game.currentMap.selectItem(item);
+            this.render();
+        }
     }
 
     render() {
+        this.clear();
+
+        this._renderFloor();
+        this._renderMapElements();
+        this._renderObjects();
+        this.inventoryRenderer.render();
+        this._renderMessage();
+    }
+
+    _renderFloor() {
         for (var floorElement of this.game.currentMap.currentRoom.floorElements) {
-            this._renderMapElement(floorElement, false, 0);
-        }
-
-        for (var mapElement of this.game.currentMap.currentRoom.mapElements) {
-            this._renderMapElement(mapElement, true);
-        }
-
-        for (var gameObject of this.game.currentMap.getVisbleGameObjects()) {
-            this._renderMapElement(gameObject, true);
+            this.drawTile(floorElement.position.x, floorElement.position.y, floorElement.imageName, 0);
         }
     }
 
-    _renderMapElement(element, interactive, depth) {
-        var tile = this.ui.add.image(element.position.x * 64, element.position.y * 64, 'map', this._frameName(element.imageName, element.orientation));
-        tile.setData('row', element.position.x);
-        tile.setData('col', element.position.y);
-
-        tile.setDepth(depth != null ? depth : (element.position.x + element.position.y));
-        
-        if (interactive) {
-            tile.setInteractive();
-            tile.on('pointerdown', () => {
-                this.game.currentMap.trigger('tap', element.id);
-            });
+    _renderMapElements() {
+        for (var mapElement of this.game.currentMap.currentRoom.mapElements) {
+            this.drawTile(mapElement.position.x, mapElement.position.y, mapElement.imageName);
         }
+    }
 
-        element.updateImage = (image) => {
-            tile.setFrame(this._frameName(image, element.orientation));
+    _renderObjects() {
+        for (var gameObject of this.game.currentMap.getVisbleGameObjects()) {
+            var tile = this.drawTile(gameObject.position.x, gameObject.position.y, this._frameName(gameObject.imageName, gameObject.orientation));
+            this._setObjectOnTap(tile, gameObject)
         }
+    }
+
+    _renderMessage() {
+        this.drawText(30, 600 * this.scale, this.game.currentMap.message);
+    }
+
+    _setObjectOnTap(tile, object) {
+        this.setOnTap(tile, () => {
+            this.game.currentMap.trigger('tap', object.id);
+            this.render();
+        });
     }
 
     _frameName(image, orientation) {

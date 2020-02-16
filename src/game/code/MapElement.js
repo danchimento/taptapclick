@@ -21,12 +21,7 @@ export default class MapElement {
     }
 
     updateImage(image) {
-        var libraryImage = ImageLibrary[image];
-        if (libraryImage && libraryImage.url) {
-            this.image = libraryImage;
-        } else {
-            this.image = libraryImage[this.orientation];
-        }
+        this.imageName = image;
     }
 
     hide() {
