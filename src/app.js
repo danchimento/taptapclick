@@ -1,8 +1,6 @@
-import Game from './game/code/Game.js';
-import GameRenderer from './game/renderer/GameRenderer.js';
+import GameScene from './game/renderer/scenes/GameScene.js';
+import MainMenuScene from './game/renderer/scenes/MainMenuScene.js';
 import './app.css';
-
-var game = new Game();
 
 var scale = Math.min(window.document.body.offsetWidth / 500, 1.5);
 
@@ -14,16 +12,7 @@ var config = {
     physics: {
         default: 'arcade',
     },
-    scene: {
-        preload: function() {
-            this.load.atlas('map', 'map/map.png', 'map/map.json');
-            this.load.setBaseURL('/resources');
-        },
-        create: function() {
-            var renderer = new GameRenderer(game, this, scale);
-            renderer.render();
-        }
-    }
+    scene: [ MainMenuScene, GameScene ]
 };
 
 var ui = new Phaser.Game(config);
