@@ -11,7 +11,7 @@ export default class BaseScene extends Phaser.Scene {
     }
 
     addSeparator(size, position) {
-        this.add.rectangle(this.game.config.width / 2, this._posToPix(position), size, 4, 0xEDECE1);
+        return this.drawRectangle(this.game.config.width / 2, this._posToPix(position), size, 4, 0xEDECE1);
     }
 
     addText(text, fontSize, position) {
@@ -53,33 +53,41 @@ export default class BaseScene extends Phaser.Scene {
         return tile;
     }
 
-    drawImage(x, y, frame, depth) {
+    drawImage(x, y, frame, depth, scale) {
         var image = this.add.image(x, y);
         image.setTexture('map');
         image.setFrame(frame)
         image.setDepth(depth);
-        image.setScale(this.scale);
+        image.setScale(scale ? scale : this.scale);
 
         this.images.push(image);
         return image;
     }
 
     drawCircle(x, y, radius, color) {
-        var circle = this.add.circle(x * this.scale, y * this.scale, radius, color);
+        var circle = this.add.circle(x, y, radius, color);
         this.images.push(circle);
+        return circle;
     }
 
-    drawText(x, y, text) {
-        var txt = this.add.text((500 * this.scale) / 2, y, text, { 
+    drawRectangle(x, y, width, height, color) {
+        var rect = this.add.rectangle(x, y, width, height, color);
+        this.images.push(rect);
+        return rect;
+    }
+
+    drawText(x, y, text, color) {
+        var txt = this.add.text(this.game.config.width / 2, y, text, { 
             fontFamily: 'Abril', 
             align: 'center',
             fontSize: 52, 
-            color: '#EDECE1',
-            wordWrap: { width: 500 * this.scale },
+            color: color ? color : '#EDECE1'
         });
+        
         txt.setOrigin(.5)
 
         this.images.push(txt);
+        return txt;
     }
 
     setOnTap(element, event) {

@@ -23,25 +23,25 @@ export default class GameScene extends BaseScene {
             level1
         ]
 
-        var  game = new Game();
+        var game = new Game();
         game.init(levels);
         game.start();
 
         this.map = game.currentMap;
 
-       // var renderer = new GameRenderer(game, this, scale);
-        this.update();
+        // var renderer = new GameRenderer(game, this, scale);
+        this._update();
     }
 
-    update() {
-        this.render();
+    _update() {
+        this._render();
 
         if (this.map.levelComplete) {
             setTimeout(() => this.scene.start("levelcomplete"), 2000);
         }
     }
 
-    render() {
+    _render() {
         this.clear();
 
         this._renderFloor();
@@ -77,31 +77,40 @@ export default class GameScene extends BaseScene {
     _renderInventory() {
         var itemsWidth = this.map.inventory.items.length * (64 * this.scale);
 
-        // TODO: Figure out where these come from
-        var itemsX = ((this.game.config.width * this.scale) / 2) - (itemsWidth / 2);
-        var itemsY = (this.game.config.width * this.scale) + (200 * this.scale);
+        // Draw inventory box
+        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(18), this.game.config.width - 100, 200, 0xEDECE1);
+        rect.setOrigin(.5);
 
-        for (var i = 0; i < this.map.inventory.items.length; i++) {
-            var item = this.map.inventory.items[i];
-            var x = itemsX + (i * (64 * this.scale));
+        var itemsX = (this.game.config.width) / 2;
+        var itemsY = this._posToPix(18);
 
-            if (this.map.inventory.selectedItem == item) {
-                this.drawCircle(x, itemsY, (32 * this.scale), "#fff")
+        if (this.map.inventory.items.length == 0) {
+            this.drawText(rect.x, rect.y, "Inventory is empty", "#DDD");
+        } else {
+            for (var i = 0; i < this.map.inventory.items.length; i++) {
+                var item = this.map.inventory.items[i];
+
+                var x = itemsX + (i * (64 * this.scale));
+
+                if (this.map.inventory.selectedItem == item) {
+                    this.drawCircle(x, itemsY, 64, 0xB04A31)
+                }
+
+                var image = this.drawImage(x, itemsY, item.imageName, 1, 1);
+                image.setOrigin(.5);
+
+                this.setOnTap(image, () => {
+                    this.map.selectItem(item);
+                    this._update();
+                });
             }
-
-            var image = this.drawImage(x, itemsY, item.imageName);
-
-            this.setOnTap(image, () => {
-                this.map.selectItem(item);
-                this.update();
-            });
         }
     }
 
     _setObjectOnTap(tile, object) {
         this.setOnTap(tile, () => {
             this.map.trigger('tap', object.id);
-            this.update();
+            this._update();
         });
     }
 

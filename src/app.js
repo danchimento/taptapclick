@@ -13,7 +13,7 @@ var config = {
     physics: {
         default: 'arcade',
     },
-    scene: [ MainMenuScene, GameScene, LevelCompleteScene ]
+    scene: [ GameScene, LevelCompleteScene ]
 };
 
 var ui = new Phaser.Game(config);
