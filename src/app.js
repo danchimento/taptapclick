@@ -1,6 +1,7 @@
-import GameScene from './game/renderer/scenes/GameScene.js';
-import MainMenuScene from './game/renderer/scenes/MainMenuScene.js';
 import './app.css';
+import GameScene from './game/scenes/GameScene.js';
+import MainMenuScene from './game/scenes/MainMenuScene.js';
+import LevelCompleteScene from './game/scenes/LevelCompleteScene.js';
 
 var scale = Math.min(window.document.body.offsetWidth / 500, 1.5);
 
@@ -12,7 +13,7 @@ var config = {
     physics: {
         default: 'arcade',
     },
-    scene: [ MainMenuScene, GameScene ]
+    scene: [ MainMenuScene, GameScene, LevelCompleteScene ]
 };
 
 var ui = new Phaser.Game(config);
