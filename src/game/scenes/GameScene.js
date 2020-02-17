@@ -14,7 +14,9 @@ export default class GameScene extends BaseScene {
     }
 
     create() {
-        this.scale = Math.min(window.document.body.offsetWidth / 500, 1.5);
+        this.scale = 1.3;
+
+        this.addMenuButton("Menu", 50, 23, () => this.scene.start("mainmenu"));
 
         this.tileWidth = 64;
         this.tileHeight = 64;
@@ -71,18 +73,18 @@ export default class GameScene extends BaseScene {
     }
 
     _renderMessage() {
-        this.drawText(30, 600 * this.scale, this.map.message);
+        this.drawText(30, this._posToPix(16), this.map.message);
     }
 
     _renderInventory() {
         var itemsWidth = this.map.inventory.items.length * (64 * this.scale);
 
         // Draw inventory box
-        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(18), this.game.config.width - 100, 200, 0xEDECE1);
+        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(19), this.game.config.width - 100, 200, 0xEDECE1);
         rect.setOrigin(.5);
 
         var itemsX = (this.game.config.width) / 2;
-        var itemsY = this._posToPix(18);
+        var itemsY = rect.y;
 
         if (this.map.inventory.items.length == 0) {
             this.drawText(rect.x, rect.y, "Inventory is empty", "#DDD");

@@ -48,7 +48,23 @@ export default class BaseScene extends Phaser.Scene {
     }
 
     drawTile(x, y, frame, depth) {
-        var tile = this.drawImage(x * 64 * this.scale, y * 64 * this.scale, frame, depth != null ? depth : (x + y));
+
+        var p = this.game.config.width / 2;
+        // TODO: Fix this
+        var q = this.game.config.width / 2;
+        
+        // TODO: What is 64?
+        var x = (x * 64 * this.scale) + 75;
+        var y = (y * 64 * this.scale) + 75;
+
+        var radians = 45 * Math.PI / 180;
+
+        var newX = ((x - p) * Math.cos(radians) - ((y - q) * Math.sin(radians))) + p;
+        var newY = ((x - p)  * Math.sin(radians) + ((y - q) * Math.cos(radians))) + q;
+
+        var tile = this.drawImage(newX, newY, frame, depth != null ? depth : (x + y));
+
+        tile.angle = 45;
 
         return tile;
     }
@@ -83,7 +99,7 @@ export default class BaseScene extends Phaser.Scene {
             fontSize: 52, 
             color: color ? color : '#EDECE1'
         });
-        
+
         txt.setOrigin(.5)
 
         this.images.push(txt);
