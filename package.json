@@ -2,7 +2,8 @@
   "name": "locked",
   "scripts": {
     "start": "http-server ./dist -o index.html",
-    "build": "webpack --watch"
+    "build-dev": "webpack --watch",
+    "build": "webpack",
   },
   "author": "",
   "license": "ISC",
