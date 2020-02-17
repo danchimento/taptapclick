@@ -16,6 +16,6 @@ export default class MainMenuScene extends BaseScene {
         this.addText('A puzzle game by CHIMENTO', 36, 8);
 
         this.addSeparator(200, 11);
-        this.addMenuButton('Start', 74, 12, () => this.scene.start("game"));
+        this.addMenuButton('Start', 74, 12, () => this.scene.start("levelselect"));
     }
 }

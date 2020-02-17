@@ -1,11 +1,13 @@
 import Game from '../code/Game.js';
-//import GameRenderer from '../GameRenderer.js';
-import level1 from '../maps/01_the_key.json';
 import BaseScene from './BaseScene.js';
 
 export default class GameScene extends BaseScene {
     constructor() {
         super('game');
+    }
+
+    init(data){
+        this.level = data.level;
     }
 
     preload() {
@@ -22,7 +24,7 @@ export default class GameScene extends BaseScene {
         this.tileHeight = 64;
 
         var levels = [
-            level1
+            this.level
         ]
 
         var game = new Game();
@@ -31,7 +33,6 @@ export default class GameScene extends BaseScene {
 
         this.map = game.currentMap;
 
-        // var renderer = new GameRenderer(game, this, scale);
         this._update();
     }
 
@@ -49,6 +50,7 @@ export default class GameScene extends BaseScene {
         this._renderFloor();
         this._renderMapElements();
         this._renderObjects();
+        this._renderItems();
         this._renderInventory();
         this._renderMessage();
     }
@@ -72,19 +74,27 @@ export default class GameScene extends BaseScene {
         }
     }
 
+    _renderItems() {
+        for (var item of this.map.getVisibleItems()) {
+            var tile = this.drawTile(item.position.x, item.position.y, this._frameName(item.imageName, item.orientation));
+            this._setItemOnTap(tile, item)
+        }
+    }
+
     _renderMessage() {
-        this.drawText(30, this._posToPix(16), this.map.message);
+        this.drawText(30, this._posToPix(15), this.map.message);
     }
 
     _renderInventory() {
-        var itemsWidth = this.map.inventory.items.length * (64 * this.scale);
+        var itemsWidth = (this.map.inventory.items.length - 1) * (64 * this.scale);
 
         // Draw inventory box
-        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(19), this.game.config.width - 100, 200, 0xEDECE1);
+        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(19), this.game.config.width - 100, 200, 0xCCCCCC);
         rect.setOrigin(.5);
 
-        var itemsX = (this.game.config.width) / 2;
+        var itemsX = ((this.game.config.width) / 2) - (itemsWidth / 2);
         var itemsY = rect.y;
+        var itemPadding = 10;
 
         if (this.map.inventory.items.length == 0) {
             this.drawText(rect.x, rect.y, "Inventory is empty", "#DDD");
@@ -92,7 +102,7 @@ export default class GameScene extends BaseScene {
             for (var i = 0; i < this.map.inventory.items.length; i++) {
                 var item = this.map.inventory.items[i];
 
-                var x = itemsX + (i * (64 * this.scale));
+                var x = itemsX + (i * (64 * this.scale)) + (i * itemPadding);
 
                 if (this.map.inventory.selectedItem == item) {
                     this.drawCircle(x, itemsY, 64, 0xB04A31)
@@ -100,11 +110,12 @@ export default class GameScene extends BaseScene {
 
                 var image = this.drawImage(x, itemsY, item.imageName, 1, 1);
                 image.setOrigin(.5);
+                image.angle = 45;
 
-                this.setOnTap(image, () => {
+                ((item) => this.setOnTap(image, () => {
                     this.map.selectItem(item);
                     this._update();
-                });
+                }))(item);
             }
         }
     }
@@ -112,6 +123,13 @@ export default class GameScene extends BaseScene {
     _setObjectOnTap(tile, object) {
         this.setOnTap(tile, () => {
             this.map.trigger('tap', object.id);
+            this._update();
+        });
+    }
+
+    _setItemOnTap(tile, object) {
+        this.setOnTap(tile, () => {
+            this.map.pickUpItem(object.id);
             this._update();
         });
     }
