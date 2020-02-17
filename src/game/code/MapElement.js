@@ -1,4 +1,3 @@
-import ImageLibrary from './ImageLibrary'
 import Position from './Position';
 
 export default class MapElement {

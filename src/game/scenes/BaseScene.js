@@ -50,7 +50,7 @@ export default class BaseScene extends Phaser.Scene {
     drawTile(x, y, frame, depth) {
 
         var angle = 45;
-        var offset = 120;
+        var offset = 150;
         var p = this.game.config.width / 2;
         // TODO: Fix this
         var q = this.game.config.width / 2;

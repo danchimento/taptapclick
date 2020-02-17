@@ -1,7 +1,7 @@
 {
   "name": "locked",
   "scripts": {
-    "start": "http-server ./dist -o index.html",
+    "start": "http-server ./deploy -o /dist/index.html",
     "build-dev": "webpack --watch",
     "build": "webpack"
   },

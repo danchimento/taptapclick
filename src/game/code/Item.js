@@ -1,4 +1,3 @@
-import ImageLibrary from './ImageLibrary';
 import Appearance from './Appearance';
 import MapElement from './MapElement';
 

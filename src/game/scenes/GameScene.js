@@ -11,8 +11,7 @@ export default class GameScene extends BaseScene {
     }
 
     preload() {
-        this.load.atlas('map', 'map/map.png', 'map/map.json');
-        this.load.setBaseURL('/resources');
+        this.load.atlas('map', './resources//map/map.png', './resources/map/map.json');
     }
 
     create() {
@@ -82,14 +81,14 @@ export default class GameScene extends BaseScene {
     }
 
     _renderMessage() {
-        this.drawText(30, this._posToPix(15), this.map.message);
+        this.drawText(30, this._posToPix(14), this.map.message);
     }
 
     _renderInventory() {
         var itemsWidth = (this.map.inventory.items.length - 1) * (64 * this.scale);
 
         // Draw inventory box
-        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(19), this.game.config.width - 100, 200, 0xCCCCCC);
+        var rect = this.drawRectangle(this.game.config.width / 2, this._posToPix(18), this.game.config.width - 100, 200, 0xCCCCCC);
         rect.setOrigin(.5);
 
         var itemsX = ((this.game.config.width) / 2) - (itemsWidth / 2);
