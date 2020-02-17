@@ -3,7 +3,7 @@
   "scripts": {
     "start": "http-server ./dist -o index.html",
     "build-dev": "webpack --watch",
-    "build": "webpack",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
