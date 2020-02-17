@@ -17,9 +17,9 @@ steps:
 - task: FtpUpload@2
   inputs:
     credentialsOption: 'inputs'
-    serverUrl: '@FtpUrl'
-    username: '@FtpUsername'
-    password: '@FtpPassword'
+    serverUrl: '$(FtpUrl)'
+    username: '$(FtpUsername)'
+    password: '$(FtpPassword)'
     rootDirectory: 'dist'
     filePatterns: '**'
     remoteDirectory: '/public_html/games/locked'
