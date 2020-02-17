@@ -21,7 +21,7 @@ steps:
     username: '$(FtpUsername)'
     password: '$(FtpPassword)'
     rootDirectory: 'dist'
-    filePatterns: '**'
+    filePatterns: '**/*'
     remoteDirectory: '/public_html/games/locked'
     clean: false
     cleanContents: false
