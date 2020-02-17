@@ -1,23 +1,23 @@
 {
-  "name": "Locked",
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "locked",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "eject": "expo eject"
+    "start": "http-server ./dist -o index.html",
+    "build": "webpack --watch"
   },
-  "dependencies": {
-    "expo": "^31.0.2",
-    "react": "16.5.0",
-    "react-native": "0.57.1",
-    "react-native-svg": "^8.0.10"
-  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
+    "style-loader": "^1.1.3",
+    "webpack-dev-server": "^3.10.3"
   },
   "rnpm": {
-    "assets": ["./assets/fonts"]
- },
-  "private": true
+    "assets": [
+      "./assets/fonts"
+    ]
+  },
+  "private": true,
+  "dependencies": {}
 }

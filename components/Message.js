@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { Font } from 'expo';
 
 export default class Message extends React.Component {
 
@@ -28,6 +27,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 25,
         color: "#EDECE1",
-       fontFamily: "AbrilFatface"
+       fontFamily: "AbrilFatface-Regular"
     }
 });

@@ -1,0 +1,252 @@
+{
+    "map": {
+        "name": "The Book",
+        "message": "Escape the room.",
+        "rooms": [
+            {
+                "name": "room",
+                "floor": "floor-2",
+                "layout": [
+                    ["sc-nw", "sw-s", "sw-s", "", "sw-s", "sw-s", "sc-ne"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sc-sw", "sw-n", "sw-n", "sw-n", "sw-n", "sw-n", "sc-se"]
+                ]
+            }
+        ],
+        "gameObjects": [
+            {
+                "name": "table",
+                "position": {
+                    "room": "room",
+                    "x": 4,
+                    "y": 4,
+                    "orientation": "south"
+                },
+                "appearance": [
+                    {
+                        "image": "table"
+                    }
+                ]
+            },
+            {
+                "name": "book",
+                "position": {
+                    "room": "room",
+                    "x": 4,
+                    "y": 4,
+                    "orientation": "east"
+                },
+                "state": "tabled",
+                "appearance": [
+                    {
+                        "image": "book-open",
+                        "conditions": [{
+                            "state": "tabled",
+                            "target": "book"
+                        }]
+                    }
+                ],
+                "inventory": []
+            },
+            {
+                "name": "bookshelf",
+                "position": {
+                    "room": "room",
+                    "x": 2,
+                    "y": 2,
+                    "orientation": "east"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": []
+            },
+            {
+                "name": "door",
+                "state": "locked",
+                "appearance": [
+                    {
+                        "image": "door",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "locked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "unlocked"
+                            }
+                        ]
+                    },
+                    {
+                        "image": "door-open",
+                        "conditions": [
+                            {
+                                "target": "door",
+                                "state": "open"
+                            }
+                        ]
+                    } 
+                ],
+                "position": {
+                    "room": "room",
+                    "x": 4,
+                    "y": 1,
+                    "orientation": "south"
+                }
+            }
+        ],
+        "items": [
+            {
+                "name": "paper-1",
+                "position": {
+                    "room": "room",
+                    "x": 2,
+                    "y": 3
+                },
+                "appearance": {
+                    "image": "paper"
+                },
+                "description": "A loose sheet of paper with writing."
+            }, 
+            {
+                "name": "paper-2",
+                "position": {
+                    "room": "room",
+                    "x": 2,
+                    "y": 6
+                },
+                "appearance": {
+                    "image": "paper"
+                },
+                "description": "A loose sheet of paper with writing."
+            }, 
+            {
+                "name": "paper-3",
+                "position": {
+                    "room": "room",
+                    "x": 5,
+                    "y": 2
+                },
+                "appearance": {
+                    "image": "paper"
+                },
+                "description": "A loose sheet of paper with writing."
+            }, 
+            {
+                "name": "paper-4",
+                "position": {
+                    "room": "room",
+                    "x": 5,
+                    "y": 5
+                },
+                "appearance": {
+                    "image": "paper"
+                },
+                "description": "A loose sheet of paper with writing."
+            }, 
+            {
+                "name": "book2",
+                "appearance": {
+                    "image": "book"
+                }
+            }
+        ],
+        "behaviors": [
+            {
+                "target": "door",
+                "trigger": "tap",
+                "conditions": [{
+                    "target": "door",
+                    "state": "unlocked"
+                }],
+                "actions": [{
+                    "target": "door",
+                    "state": "open",
+                    "sound": "wood_creak"
+                },{
+                    "endLevel": true
+                }]
+            },
+            {
+                "target": "door",
+                "trigger": "tap",
+                "conditions": [{
+                    "target": "door",
+                    "state": "locked"
+                }],
+                "actions": [{
+                    "message": "It's locked.",
+                    "sound": "touch"
+                }]
+            },
+            {
+                "target": "bookshelf",
+                "trigger": "use_item",
+                "conditions": [{
+                    "item": "book2"
+                }],
+                "actions": [{
+                    "state": "unlocked",
+                    "target": "door",
+                    "sound": "unlock"
+                },
+                {
+                    "consumeItem": "book2"
+                },
+                {
+                    "message": "*click*"
+                }]
+            },
+            {
+                "target": "book",
+                "trigger": "tap",
+                "conditions": [{
+                    "hasItem": "paper-1",
+                    "target": "book"
+                },{
+                    "hasItem": "paper-2",
+                    "target": "book"
+                },{
+                    "hasItem": "paper-3",
+                    "target": "book"
+                },{
+                    "hasItem": "paper-4",
+                    "target": "book"
+                }],
+                "actions": [{
+                    "target": "book",
+                    "state": "inventory"
+                }, {
+                    "moveItem": "book2",
+                    "target": "inventory"
+                }, {
+                    "consumeItem": "paper*",
+                    "target": "book"
+                }, {
+                    "sound": "touch"
+                }]
+            }
+        ],
+        "inventory": {
+        
+        }
+    }
+}

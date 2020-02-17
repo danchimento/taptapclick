@@ -1,0 +1,392 @@
+{
+    "map": {
+        "name": "The Library",
+        "rooms": [
+            {
+                "name": "room",
+                "floor": "floor-1",
+                "layout": [
+                    ["sc-nw", "", "", "", "", "", "sc-ne"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sw-e", "", "", "", "", "", "sw-w"],
+
+                    ["sc-sw", "sw-n", "sw-n", "sw-n", "sw-n", "sw-n", "sc-se"]
+                ]
+            }
+        ],
+        "gameObjects": [
+            {
+                "name": "door",
+                "state": "closed",
+                "position": {
+                    "room": "room",
+                    "x": 1,
+                    "y": 4,
+                    "orientation": "east"
+                },
+                "appearance": [
+                    {
+                        "image": "door",
+                        "conditions": [{
+                            "target": "door",
+                            "state": "locked"
+                        }]
+                    },
+                    {
+                        "image": "door",
+                        "conditions": [{
+                            "target": "door",
+                            "state": "unlocked"
+                        }]
+                    },
+                    {
+                        "image": "door-open",
+                        "conditions": [{
+                            "target": "door",
+                            "state": "open"
+                        }]
+                    }
+                ]
+            },
+            {
+                "name": "bookshelf-1",
+                "position": {
+                    "room": "room",
+                    "x": 2,
+                    "y": 1,
+                    "orientation": "south"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": [{
+                        "name": "book-1",
+                        "appearance": {
+                            "image": "book"
+                        },
+                        "description": "'One Love' by Arthur B." 
+                    }]
+                }
+            },
+            {
+                "name": "bookshelf-2",
+                "position": {
+                    "room": "room",
+                    "x": 3,
+                    "y": 1,
+                    "orientation": "south"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": []
+                }
+            },
+            {
+                "name": "bookshelf-3",
+                "position": {
+                    "room": "room",
+                    "x": 4,
+                    "y": 1,
+                    "orientation": "south"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": []
+                }
+            },
+            {
+                "name": "bookshelf-4",
+                "position": {
+                    "room": "room",
+                    "x": 5,
+                    "y": 1,
+                    "orientation": "south"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": [{
+                        "name": "book-2",
+                        "appearance": {
+                            "image": "book"
+                        },
+                        "description": "'A Tale of Destruction' by Jason S." 
+                    }]
+                }
+            },
+            {
+                "name": "bookshelf-5",
+                "position": {
+                    "room": "room",
+                    "x": 6,
+                    "y": 1,
+                    "orientation": "south"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": []
+                }
+            },
+            {
+                "name": "bookshelf-6",
+                "position": {
+                    "room": "room",
+                    "x": 1,
+                    "y": 2,
+                    "orientation": "east"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": []
+                }
+            },
+            {
+                "name": "bookshelf-7",
+                "position": {
+                    "room": "room",
+                    "x": 1,
+                    "y": 3,
+                    "orientation": "east"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": []
+                }
+            },
+            {
+                "name": "bookshelf-8",
+                "position": {
+                    "room": "room",
+                    "x": 1,
+                    "y": 5,
+                    "orientation": "east"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": []
+                }
+            },
+            {
+                "name": "bookshelf-9",
+                "position": {
+                    "room": "room",
+                    "x": 1,
+                    "y": 6,
+                    "orientation": "east"
+                },
+                "appearance": [
+                    {
+                        "image": "bookshelf"
+                    }
+                ],
+                "inventory": {
+                    "items": [{
+                        "name": "book-3",
+                        "appearance": {
+                            "image": "book"
+                        },
+                        "description": "'The Anatomy of a Strawberry' by Lousia K." 
+                    }]
+                }
+            },
+            {
+                "name": "chair-1",
+                "position": {
+                    "room": "room",
+                    "x": 3,
+                    "y": 3,
+                    "orientation": "north"
+                },
+                "appearance": [
+                    {
+                        "image": "chair_01"
+                    }
+                ]
+            },
+            {
+                "name": "chair-2",
+                "position": {
+                    "room": "room",
+                    "x": 6,
+                    "y": 3,
+                    "orientation": "north"
+                },
+                "appearance": [
+                    {
+                        "image": "chair_01"
+                    }
+                ]
+            },
+            {
+                "name": "chair-3",
+                "position": {
+                    "room": "room",
+                    "x": 3,
+                    "y": 6,
+                    "orientation": "west"
+                },
+                "appearance": [
+                    {
+                        "image": "chair_01"
+                    }
+                ]
+            }
+        ],
+        "behaviors": [
+            {
+                "target": "door",
+                "trigger": "tap",
+                "conditions": [{
+                    "target": "door",
+                    "state": "locked"
+                }],
+                "actions": [{
+                    "message": "It's locked.",
+                    "sound": "touch"
+                }]
+            },
+            {
+                "trigger": "tap",
+                "target": "door",
+                "conditions": [
+                    {
+                        "state": "unlocked",
+                        "target": "door"
+                    }
+                ],
+                "actions": [{
+                    "target": "door",
+                    "state": "open",
+                    "sound": "wood_creak"  
+                },{
+                    "endLevel": "end_level"
+                }]
+            },
+            {
+                "trigger": "use_item",
+                "target": "bookshelf-2",
+                "actions": [{
+                    "target": "door",
+                    "state": "unlocked",
+                    "sound": "unlock"
+                }, {
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
+                }],
+                "conditions": [
+                    {
+                        "item": "book*",
+                        "target": "bookshelf-2"
+                    },
+                    {
+                        "hasItem": "book*",
+                        "target": "bookshelf-5"
+                    },
+                    {
+                        "hasItem": "book*",
+                        "target": "bookshelf-9"
+                    }
+                ]
+            },
+            {
+                "trigger": "use_item",
+                "target": "bookshelf-5",
+                "actions": [{
+                    "target": "door",
+                    "state": "unlocked",
+                    "sound": "unlock"
+                },{
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
+                }],
+                "conditions": [
+                    {
+                        "hasItem": "book*",
+                        "target": "bookshelf-2"
+                    },
+                    {
+                        "item": "book*",
+                        "target": "bookshelf-5"
+                    },
+                    {
+                        "hasItem": "book*",
+                        "target": "bookshelf-9"
+                    }
+                ]
+            },
+            {
+                "trigger": "use_item",
+                "target": "bookshelf-9",
+                "actions": [{
+                    "target": "door",
+                    "state": "unlocked",
+                    "sound": "unlock"
+                },{
+                    "consumeItem": true
+                }, {
+                    "message": "*click*"
+                }],
+                "conditions": [
+                    {
+                        "hasItem": "book*",
+                        "target": "bookshelf-2"
+                    },
+                    {
+                        "hasItem": "book*",
+                        "target": "bookshelf-5"
+                    },
+                    {
+                        "item": "book*",
+                        "target": "bookshelf-9"
+                    }
+                ]
+            }
+        ],
+        "items": [
+
+        ],
+        "inventory": {
+            "items": []
+        }
+    }
+}

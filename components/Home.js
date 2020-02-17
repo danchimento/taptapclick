@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableWithoutFeedback } from 'react-native';
+import SoundManger from '../game/code/SoundManager';
 
 export default class Home extends React.Component {
 
   constructor() {
     super();
 
+    this._soundManager = new SoundManger();
+    this._soundManager.playSound("app_open");
   }
 
   render() {
@@ -45,19 +48,19 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 75,
-        fontFamily: "AbrilFatface",
+        fontFamily: "AbrilFatface-Regular",
         color: "#ffffff",
         textAlign: "center"
     },
     subtitle: {
         fontSize: 20,
-        fontFamily: "AbrilFatface",
+        fontFamily: "AbrilFatface-Regular",
         color: "#ffffff",
         textAlign: "center"
     },
     startButton: {
         fontSize: 50,
-        fontFamily: "AbrilFatface",
+        fontFamily: "AbrilFatface-Regular",
         color: "#ffffff",
         textDecorationLine: "underline"
     },

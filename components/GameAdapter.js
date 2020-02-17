@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Game from '../game/code/Game';
 import MapAdapter from './MapAdapter';
-import { Font } from 'expo';
+//import { Font } from 'expo';
 import Home from './Home';
 import Levels from './Levels';
 import LevelComplete from './LevelComplete';
@@ -32,9 +32,9 @@ export default class GameAdapter extends React.Component {
   }
 
   async componentDidMount() {
-    await Font.loadAsync({
-      'AbrilFatface': require('../assets/fonts/AbrilFatface-Regular.ttf'),
-    });
+    // await Font.loadAsync({
+    //   'AbrilFatface': require('../assets/fonts/AbrilFatface-Regular.ttf'),
+    // });
 
     this.setState({ 
       fontLoaded: true 
